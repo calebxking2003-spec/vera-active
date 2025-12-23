@@ -797,3 +797,19 @@ body{
   font-size:13px;
   margin-top:20px;
 }
+
+/* Stripe checkout embed */
+.stripe-checkout{
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(26,26,26,.10);
+  background: rgba(255,255,255,.72);
+  box-shadow: var(--shadow-soft);
+}
+.mini-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}

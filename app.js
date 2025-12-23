@@ -161,14 +161,8 @@ applyShop();
 /* Demo cart */
 const CART_KEY = "vera_cart_v1";
 
-function readCart(){
-  try { return JSON.parse(localStorage.getItem(CART_KEY) || "[]"); }
-  catch { return []; }
-}
-function writeCart(items){
-  localStorage.setItem(CART_KEY, JSON.stringify(items));
-  updateCartDot(items);
-}
+
+
 
 function updateCartDot(items = readCart()){
   const dot = $('.cart-dot');
@@ -177,21 +171,7 @@ function updateCartDot(items = readCart()){
 }
 
 
-){
-  const p = products.find(x => x.id === productId) || products[0];
-  const cart = readCart();
 
-  const item = {
-    id: p.id,
-    name: p.name,
-    price: p.price,
-    color: opts.color || (p.id === "onepiece" ? "Charcoal Black" : ""),
-    size: opts.size || ""
-  };
-
-  cart.push(item);
-  writeCart(cart);
-}
 
 
 $$('[data-add]').forEach(btn => {
@@ -409,4 +389,16 @@ async function startCheckout() {
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("buyNowBtn");
   if (btn) btn.addEventListener("click", startCheckout);
+
+  // Live summary under button (nice + reassuring)
+  const sum = document.getElementById("checkoutSummary");
+  if (sum) {
+    const tick = () => {
+      const c = (document.querySelector("#selColor")?.textContent || "Color").trim();
+      const s = (document.querySelector("#selSize")?.textContent || "Size").trim();
+      sum.textContent = `${c} — ${s}`;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
 });
