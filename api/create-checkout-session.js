@@ -15,23 +15,19 @@ export default async function handler(req, res) {
       mode: "payment",
       allow_promotion_codes: true,
 
-      // Dynamic line item so the CHECKOUT page itself shows the picked variant
       line_items: [{
         price_data: {
           currency: "cad",
           unit_amount: 6499,
-          product_data: {
-            name: itemName
-          }
+          product_data: { name: itemName }
         },
         quantity: 1
       }],
 
-      // Still store structured info for fulfillment
       metadata: { color, size },
 
       success_url: `${process.env.SITE_URL}/success.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.SITE_URL}/product-contourzip-onepiece.html`,
+      cancel_url: `${process.env.SITE_URL}/product.html`,
     });
 
     return res.status(200).json({ url: session.url });

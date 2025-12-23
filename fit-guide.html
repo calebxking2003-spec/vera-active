@@ -1,109 +1,64 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fit Guide — VÉRA ACTIVE</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <div class="bg-orbit" aria-hidden="true"></div>
-  <div class="cursor-blob" aria-hidden="true"></div>
-
-
-<header class="nav">
-  <a class="logo" href="index.html" aria-label="VÉRA ACTIVE home">
-    <span class="logo-mark">VÉRA</span><span class="logo-sub">ACTIVE</span>
-  </a>
-
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span>
-  </button>
-
-  <nav class="nav-links" aria-label="Primary">
-    <a href="product-contourzip-onepiece.html">Our First Drop</a>
-    <a href="fit-guide.html">Fit Guide</a>
-    <a href="contact.html">Contact / FAQ</a>
-    <a class="nav-cart" href="product-contourzip-onepiece.html#checkout" aria-label="Cart">
-      <span>Cart</span>
-      <span class="cart-dot" aria-hidden="true"></span>
-    </a>
-  </nav>
+  <div class="announcement">Worldwide shipping · Tracked delivery · Promo code <b>FIRST10</b></div>
+  <header class="header">
+  <div class="header-inner">
+<a class="brand" href="./index.html">VÉRA ACTIVE</a>
+    <nav class="nav">
+      <a href="./product.html">Shop</a>
+      <a class="active" href="./fit-guide.html">Fit Guide</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
+  <main class="container page">
+    <h1>Fit guide</h1>
+    <p class="muted">A sculpted feel — supportive, smooth, and comfortable.</p>
 
-  <main class="wrap page">
-    <div class="page-head">
-      <h1 class="reveal">Fit Guide</h1>
-      <p class="lead reveal">How it should feel. Simple. Honest.</p>
+    <div class="card" style="margin-top:18px;">
+      <div class="card-title">How it should feel</div>
+      <ul class="muted">
+        <li>Snug at first — the fabric relaxes slightly with wear.</li>
+        <li>Supportive through the waist and hips without pinching.</li>
+        <li>Secure through movement — no constant adjusting.</li>
+      </ul>
     </div>
 
-    <div class="grid two">
-      <section class="cardbox reveal">
-        <h3>How it should feel</h3>
-        <ul class="muted">
-          <li>Secure, not restrictive</li>
-          <li>Smooth compression</li>
-          <li>No rolling or digging</li>
-          <li>Breathable stretch that holds shape</li>
-        </ul>
-      </section>
-      <section class="cardbox reveal" data-drift="1">
-        <h3>Model sizing</h3>
-        <div class="table">
-          <div class="row"><span>XS</span><span>Petite fit</span></div>
-          <div class="row"><span>S</span><span>Everyday athletic fit</span></div>
-          <div class="row"><span>M</span><span>Comfort + support</span></div>
-          <div class="row"><span>L</span><span>Relaxed compression</span></div>
-          <div class="row"><span>XL</span><span>Room + security</span></div>
-        </div>
-        <p class="muted small">If between sizes, size up for comfort.</p>
-      </section>
-    </div>
-
-    <section class="diagram reveal">
-      <h3>Simple diagrams</h3>
-      <div class="diagram-grid">
-        <div class="diagram-card"><div class="dot"></div><p class="muted">High-waist placement</p></div>
-        <div class="diagram-card"><div class="dot"></div><p class="muted">Compression zones</p></div>
-        <div class="diagram-card"><div class="dot"></div><p class="muted">Stretch direction</p></div>
+    <div class="card" style="margin-top:14px;">
+      <div class="card-title">Size chart (inches)</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hip</th></tr></thead>
+          <tbody>
+            <tr><td>S</td><td>31.5–33.1</td><td>25.2–26.8</td><td>33.9–35.4</td></tr>
+            <tr><td>M</td><td>33.1–34.6</td><td>26.8–28.3</td><td>35.4–37.0</td></tr>
+            <tr><td>L</td><td>34.6–36.2</td><td>28.3–29.9</td><td>37.0–38.6</td></tr>
+          </tbody>
+        </table>
       </div>
-    </section>
+      <div class="muted small" style="margin-top:10px;">Between sizes? Size up for a softer feel.</div>
+    </div>
   </main>
 
-
-<footer class="footer">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">VÉRA ACTIVE</div>
-      <p class="muted">Strong. Sculpted. Unstoppable.</p>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">VÉRA ACTIVE</div>
+      <div class="footer-links">
+        <a href="./shipping.html">Shipping</a>
+        <a href="./returns.html">Returns</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </div>
     </div>
-    <div>
-      <div class="footer-title">Our First Drop</div>
-      <a href="shop.html?cat=sets">Sets</a>
-      <a href="shop.html?cat=leggings">Leggings</a>
-      <a href="shop.html?cat=bras">Sports Bras</a>
-      <a href="shop.html?cat=shorts">Shorts</a>
-      <a href="shop.html?cat=onepieces">One-Pieces</a>
-    </div>
-    <div>
-      <div class="footer-title">Support</div>
-      <a href="fit-guide.html">Fit Guide</a>
-      <a href="contact.html#shipping">Shipping</a>
-      <a href="contact.html#returns">Returns</a>
-      <a href="contact.html#sizing">Sizing Help</a>
-    </div>
-    <div>
-      <div class="footer-title">Contact</div>
-      <a href="contact.html">Help Center</a>
-      <a href="mailto:support@veraactive.co">support@veraactive.co</a>
-      <p class="muted small">© 2025 VÉRA ACTIVE</p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
   <script src="./app.js" defer></script>
 </body>
