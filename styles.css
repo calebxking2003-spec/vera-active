@@ -892,3 +892,29 @@ body{
   background: rgba(255,255,255,.58);
 }
 .trust-item b{ font-weight: 600; }
+
+
+/* Spacing polish v18 */
+.container{ max-width: 1120px; }
+.section{ padding: 92px 0; }
+.hero{ padding: 110px 0 96px; }
+.hero-grid{ gap: 72px; }
+.site-header{ padding: 22px 10%; }
+.nav{ gap: 26px; }
+.cards{ gap: 22px; }
+.product-grid{ gap: 22px; }
+.product-card{ padding: 18px; border-radius: 22px; }
+.price-row{ margin-top: 10px; gap: 12px; }
+.buy-block{ margin-top: 18px; }
+.trust-item{ padding: 14px 16px; border-radius: 18px; }
+.product-gallery{ gap: 18px; }
+.product-details{ gap: 22px; }
+.footer-inner{ padding: 54px 10%; gap: 38px; }
+.email-capture{ padding: 92px 10%; }
+
+@media (max-width: 900px){
+  .site-header{ padding: 18px 6%; }
+  .hero{ padding: 92px 0 78px; }
+  .hero-grid{ gap: 44px; }
+  .footer-inner{ padding: 46px 6%; }
+}
