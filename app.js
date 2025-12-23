@@ -177,7 +177,21 @@ function updateCartDot(items = readCart()){
 }
 
 
+){
+  const p = products.find(x => x.id === productId) || products[0];
+  const cart = readCart();
 
+  const item = {
+    id: p.id,
+    name: p.name,
+    price: p.price,
+    color: opts.color || (p.id === "onepiece" ? "Charcoal Black" : ""),
+    size: opts.size || ""
+  };
+
+  cart.push(item);
+  writeCart(cart);
+}
 
 
 $$('[data-add]').forEach(btn => {
@@ -363,3 +377,36 @@ if (cartWrap){
 function subscribeEmail(){
   alert("Thanks — you’re on the list.");
 }
+
+async function startCheckout() {
+  const color = (document.querySelector("#selColor")?.textContent || "").trim();
+  const size  = (document.querySelector("#selSize")?.textContent || "").trim();
+
+  if (!size) {
+    alert("Pick a size (S, M, or L).");
+    return;
+  }
+  if (!color) {
+    alert("Pick a color.");
+    return;
+  }
+
+  const res = await fetch("/api/create-checkout-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ color, size })
+  });
+
+  const data = await res.json();
+  if (!res.ok) {
+    alert(data.error || "Checkout failed.");
+    return;
+  }
+
+  window.location.href = data.url;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("buyNowBtn");
+  if (btn) btn.addEventListener("click", startCheckout);
+});
