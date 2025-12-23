@@ -918,3 +918,75 @@ body{
   .hero-grid{ gap: 44px; }
   .footer-inner{ padding: 46px 6%; }
 }
+
+/* Premium button system v2 */
+.btn, .btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding: 12px 18px;
+  min-height: 44px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  line-height: 1;
+  transform: translateZ(0);
+}
+.btn{
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(17,17,17,.10);
+}
+.btn:hover{
+  transform: translate3d(0,-1px,0);
+}
+.btn:active{
+  transform: translate3d(0,0,0) scale(.99);
+}
+.btn-ghost{
+  background: transparent;
+  color: #111;
+  border: 1px solid rgba(17,17,17,.16);
+}
+.btn-ghost:hover{
+  background: rgba(17,17,17,.04);
+}
+/* prevent stretched full-width buttons unless explicitly requested */
+.btn.full, .btn-ghost.full{ width:100%; }
+
+/* Layout spacing polish v2 */
+.container{
+  max-width: 1120px;
+}
+section{
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.hero{
+  padding-top: 110px;
+  padding-bottom: 90px;
+}
+.grid, .product-grid{
+  gap: 28px;
+}
+.cardbox, .product-card, .trust-item{
+  border-radius: 18px;
+}
+
+.pill-tag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #111;
+  border: 1px solid rgba(17,17,17,.14);
+  background: rgba(255,255,255,.65);
+  backdrop-filter: blur(10px);
+  margin-bottom: 16px;
+}

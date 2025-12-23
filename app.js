@@ -428,3 +428,46 @@ function addRipple(e){
   btn.appendChild(s);
   setTimeout(()=> s.remove(), 800);
 }
+
+function bindBuyNow(){
+  const btn = document.getElementById("buyNowBtn");
+  if (!btn) return;
+
+  const updateSummary = () => {
+    const c = (document.querySelector("#selColor")?.textContent || "Color").trim();
+    const s = (document.querySelector("#selSize")?.textContent || "Size").trim();
+    const sum = document.getElementById("checkoutSummary");
+    if (sum) sum.textContent = `${c} — ${s}`;
+  };
+
+  updateSummary();
+  setInterval(updateSummary, 200);
+
+  btn.addEventListener("click", async (e)=>{
+    try{
+      const color = (document.querySelector("#selColor")?.textContent || "").trim();
+      const size  = (document.querySelector("#selSize")?.textContent || "").trim();
+
+      if (!size) { toast ? toast("Pick a size (S, M, or L).") : alert("Pick a size (S, M, or L)."); return; }
+      if (!color) { toast ? toast("Pick a color.") : alert("Pick a color."); return; }
+
+      // little click feedback
+      if (typeof addRipple === "function") addRipple(e);
+
+      const res = await fetch("/api/create-checkout-session", {
+        method:"POST",
+        headers: { "Content-Type":"application/json" },
+        body: JSON.stringify({ color, size })
+      });
+      const data = await res.json();
+      if (!res.ok) { toast ? toast(data.error || "Checkout failed.") : alert(data.error || "Checkout failed."); return; }
+
+      // Redirect to Stripe checkout
+      window.location.href = data.url;
+    }catch(err){
+      toast ? toast("Checkout error. Try again.") : alert("Checkout error. Try again.");
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", bindBuyNow);
