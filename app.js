@@ -402,3 +402,29 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(tick);
   }
 });
+
+function toast(text){
+  let el = document.querySelector('.toast');
+  if (!el){
+    el = document.createElement('div');
+    el.className = 'toast';
+    document.body.appendChild(el);
+  }
+  el.textContent = text;
+  el.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(()=> el.classList.remove('show'), 2200);
+}
+
+function addRipple(e){
+  const btn = e.currentTarget;
+  const r = btn.getBoundingClientRect();
+  const s = document.createElement('span');
+  s.className = 'ripple';
+  const d = Math.max(r.width, r.height);
+  s.style.width = s.style.height = d + 'px';
+  s.style.left = (e.clientX - r.left - d/2) + 'px';
+  s.style.top  = (e.clientY - r.top  - d/2) + 'px';
+  btn.appendChild(s);
+  setTimeout(()=> s.remove(), 800);
+}
