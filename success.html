@@ -1,84 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="theme-color" content="#f6f3ef"/>
-  <title>Order confirmed — VÉRA ACTIVE</title>
-  <link rel="preload" href="styles.css" as="style"/>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-<div class="wrap">
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar-inner">
-        <a class="brand" href="index.html" aria-label="VÉRA ACTIVE home">
-          <div class="logo">VÉRA ACTIVE</div>
-          <div class="tag">Strong. Sculpted. Unstoppable.</div>
-        </a>
-        <nav class="nav" aria-label="Primary">
-          <a href="shop.html">Shop</a>
-          <a href="fit-fabric.html">Fit &amp; Fabric</a>
-          <a href="philosophy.html">Philosophy</a>
-          <a href="support.html">Support</a>
-        </nav>
-        <a class="btn btn-ghost" href="flare.html">Our First Drop</a>
-      </div>
-    </div>
-  </div>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Order confirmed • THE DOG FACE™</title>
+<link rel="stylesheet" href="css/style.css"/>
+</head><body>
+<div class="container">
+<header>
+<strong>THE DOG FACE™</strong>
+<nav class="topNav">
+<a href="index.html">Home</a>
+<a href="index.html#product">Shop</a>
+<a href="cart.html">Cart</a>
+</nav>
+</header>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <div class="card reveal" style="padding: 28px;">
-          <div class="kicker">Order confirmed</div>
-          <h1 style="margin-top:10px;">You’re in.</h1>
-          <p class="measure" style="margin-top:14px;">A receipt has been sent to your email. We’ll send tracking as soon as your order ships.</p>
-          <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="flare.html">Shop again</a>
-            <a class="btn btn-ghost" href="support.html">Support</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <div class="logo" style="margin-bottom:10px;">VÉRA ACTIVE</div>
-          <p class="small measure">Luxury performance essentials — engineered for form, designed for movement. Minimal, calm, intentional.</p>
-          <p class="small" style="margin-top:12px;">Worldwide shipping · Secure checkout · Promo codes enabled</p>
-        </div>
-        <div>
-          <div class="kicker">Shop</div>
-          <p class="small" style="margin-top:10px; display:grid; gap:8px;">
-            <a href="shop.html">Collections</a>
-            <a href="flare.html">Sculpt Flare One‑Piece</a>
-            <a href="fit-fabric.html">Fit &amp; Fabric</a>
-          </p>
-        </div>
-        <div>
-          <div class="kicker">Support</div>
-          <p class="small" style="margin-top:10px; display:grid; gap:8px;">
-            <a href="support.html#shipping">Shipping</a>
-            <a href="support.html#returns">Returns</a>
-            <a href="support.html#contact">Contact</a>
-          </p>
-        </div>
-      </div>
-      <div class="small" style="padding: 0 0 26px 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-        <span>© <span id="y"></span> VÉRA ACTIVE</span>
-        <span>Privacy-first · Built for speed</span>
-      </div>
-    </div>
-  </footer>
+<main class="page">
+<h1 class="pageTitle">Order confirmed</h1>
+<p class="pageSub">Thanks. Your pre-order is locked in.</p>
+<div class="block">
+  <div class="cartConfidence">We’ll email you when it ships, with tracking.</div>
+  <a class="btn" href="index.html">Back to home</a>
 </div>
+</main>
+</div>
+<footer class="siteFooter"><div class="container footerGrid">
+  <div><strong>THE DOG FACE™</strong><div class="footerSub">Premium winter puffer for dogs.</div></div>
+  <div class="footerLinks"><a href="policies.html">Policies</a><a href="contact.html">Contact</a></div>
+</div></footer>
+<script src="js/main.js"></script>
 <script>
-  document.getElementById("y").textContent = new Date().getFullYear();
+  try{ localStorage.removeItem("thedogface_cart_v1"); sessionStorage.removeItem("thedogface_leash_added"); }catch(e){}
 </script>
-<script defer src="app.js"></script>
-</body>
-</html>
+</body></html>

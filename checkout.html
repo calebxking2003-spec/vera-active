@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Continue • THE DOG FACE™</title>
+<link rel="stylesheet" href="css/style.css"/>
+</head><body>
+<div class="container">
+<header>
+<strong>THE DOG FACE™</strong>
+<nav>
+<a href="index.html#product">Shop</a>
+<a href="cart.html">Cart</a>
+</nav>
+</header>
+
+<main class="page">
+<h1 class="pageTitle">Continue</h1>
+<p class="pageSub">Pre‑order confirmed at checkout. We’ll email you when it ships.</p>
+
+<div class="checkoutBox">
+  <div id="checkoutLines"></div>
+  <div class="sumTotal"><span>Total</span><span id="totalVal">$0.00</span></div>
+  <div class="microNote" style="margin-top:10px">Secure payment handled by Stripe. Apple Pay & Google Pay supported.</div>
+</div>
+  <div class="sumLine" id="leashLine" style="display:none"><span>Matching leash</span><span>$9.99</span></div>
+  <div class="sumTotal"><span>Total</span><span id="totalVal">$64.99</span></div>
+
+  <div class="microNote" style="margin-top:10px">Secure payment handled by Stripe. Apple Pay & Google Pay supported.</div>
+</div>
+<div class='orderConfirmNote'>Order confirmed. We’ll email you when your jacket ships.</div>
+
+<div class="block" style="margin-top:14px">
+  <button class="btn" id="stripePayBtn" type="button">Pay with Stripe</button>
+  <div class="microNote" style="margin-top:10px">Secure Stripe Checkout. If Stripe isn’t connected yet, you’ll see an error.</div>
+</div>
+</main>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  const leash = sessionStorage.getItem("thedogface_leash_added")==="1";
+  const items = (window.DogfaceCart && window.DogfaceCart.loadCart()) || [];
+  const lines = document.getElementById("checkoutLines");
+  const totalEl = document.getElementById("totalVal");
+  const MONEY = (window.DogfaceCart && window.DogfaceCart.MONEY) || (n=>"$"+n.toFixed(2));
+
+  let total = 0;
+  if(lines){
+    if(!items.length){
+      lines.innerHTML = `<div class="sumLine"><span>No items</span><span>$0.00</span></div>`;
+    }else{
+      lines.innerHTML = items.map(i=>{
+        total += i.price*i.qty;
+        return `<div class="sumLine"><span>${i.name} (${i.color}/${i.size}) × ${i.qty}</span><span>${MONEY(i.price*i.qty)}</span></div>`;
+      }).join("");
+    }
+    if(leash){
+      total += 9.99;
+      lines.innerHTML += `<div class="sumLine"><span>Matching leash</span><span>$9.99</span></div>`;
+    }
+  }
+  if(totalEl) totalEl.textContent = MONEY(total);
+</script>
+
+<script>
+  (function(){
+    const btn = document.getElementById("stripePayBtn");
+    if(!btn) return;
+    btn.addEventListener("click", async ()=>{
+      btn.disabled = true;
+      const oldText = btn.textContent;
+      btn.textContent = "Redirecting…";
+      try{
+        const items = (window.DogfaceCart && window.DogfaceCart.loadCart()) || [];
+        const leashAdded = sessionStorage.getItem("thedogface_leash_added")==="1";
+        const email = sessionStorage.getItem("thedogface_email_capture") || "";
+        const res = await fetch("/create-checkout-session", {
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body: JSON.stringify({items, email, leashAdded})
+        });
+        const data = await res.json();
+        if(!res.ok) throw new Error(data.error || "Checkout error");
+        window.location.href = data.url;
+      }catch(e){
+        alert(e.message || "Stripe not configured.");
+      }finally{
+        btn.disabled = false;
+        btn.textContent = oldText;
+      }
+    });
+  })();
+</script>
+</body></html>

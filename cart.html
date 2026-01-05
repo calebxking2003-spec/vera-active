@@ -1,88 +1,142 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Cart — VÉRA ACTIVE</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css"/>
-</head>
-<body>
-  <div class="bg-orbit" aria-hidden="true"></div>
-  <div class="cursor-blob" aria-hidden="true"></div>
-
-
-<header class="nav">
-  <a class="logo" href="index.html" aria-label="VÉRA ACTIVE home">
-    <span class="logo-mark">VÉRA</span><span class="logo-sub">ACTIVE</span>
-  </a>
-
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span>
-  </button>
-
-  <nav class="nav-links" aria-label="Primary">
-    <a href="product-contourzip-onepiece.html">Our First Drop</a>
-    <a href="fit-guide.html">Fit Guide</a>
-    <a href="contact.html">Contact / FAQ</a>
-    <a class="nav-cart" href="cart.html" aria-label="Cart">
-      <span>Cart</span>
-      <span class="cart-dot" aria-hidden="true"></span>
-    </a>
-  </nav>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cart • THE DOG FACE™</title>
+<link rel="stylesheet" href="css/style.css"/>
+</head><body>
+<div class="container">
+<header>
+<strong>THE DOG FACE™</strong>
+<nav>
+<a href="index.html#product">Shop</a>
+<a href="why.html">Why</a>
+<a href="size.html">Size</a>
+<a href="cart.html">Cart</a>
+</nav>
 </header>
 
+<main class="page">
+<h1 class="pageTitle">Cart</h1>
+<p class="pageSub">Ready when you are.</p>
 
-  <main class="wrap page">
-    <div class="page-head">
-      <h1 class="reveal">Cart</h1>
-      <p class="lead reveal">Clean checkout flow (demo).</p>
-    </div>
+<div class="cartRow">
+  <div class="cartList" id="cartList"></div>
 
-    <section class="cart reveal">
-      <div id="cartItems" class="cart-items"></div>
-      <div class="cart-summary">
-        <div class="row"><span class="muted">Subtotal</span><span id="subtotal">$0 CAD</span></div>
-        <div class="row"><span class="muted">Shipping</span><span class="muted">Calculated at checkout</span></div>
-        <button class="btn btn-wide" id="checkoutBtn">Checkout</button>
-        <p class="muted small">Demo cart uses localStorage (static site).</p>
-      </div>
-    </section>
-  </main>
-
-
-<footer class="footer">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">VÉRA ACTIVE</div>
-      <p class="muted">Strong. Sculpted. Unstoppable.</p>
-    </div>
-    <div>
-      <div class="footer-title">Our First Drop</div>
-      <a href="shop.html?cat=sets">Sets</a>
-      <a href="shop.html?cat=leggings">Leggings</a>
-      <a href="shop.html?cat=bras">Sports Bras</a>
-      <a href="shop.html?cat=shorts">Shorts</a>
-      <a href="shop.html?cat=onepieces">One-Pieces</a>
-    </div>
-    <div>
-      <div class="footer-title">Support</div>
-      <a href="fit-guide.html">Fit Guide</a>
-      <a href="contact.html#shipping">Shipping</a>
-      <a href="contact.html#returns">Returns</a>
-      <a href="contact.html#sizing">Sizing Help</a>
-    </div>
-    <div>
-      <div class="footer-title">Contact</div>
-      <a href="contact.html">Help Center</a>
-      <a href="mailto:support@veraactive.co">support@veraactive.co</a>
-      <p class="muted small">© 2025 VÉRA ACTIVE</p>
-    </div>
+  <div class="cartSummary">
+<div class="cartConfidence">Pre‑order item • Ships in 2–3 weeks • 15‑day refunds after delivery • Secure Stripe checkout</div>
+    <div class="sumLine"><span>Subtotal</span><span id="subVal">$0.00</span></div>
+    <div class="sumLine"><span>Shipping</span><span>Calculated at checkout</span></div>
+    <div class="sumLine" id="leashCartLine" style="display:none"><span>Matching leash</span><span>$9.99</span></div>
+    <div class="sumTotal"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="btn" id="checkoutBtn" type="button">Continue</button>
+    <div class="microNote" style="margin-top:10px">Pre-order. We’ll email you when it ships.</div>
   </div>
-</footer>
+</div>
+</main>
+</div>
 
-  <script src="./app.js"></script>
-</body>
-</html>
+<!-- Upsell modal -->
+<div class="modalOverlay" id="upsellOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="upsellTitle">
+    <div class="modalTop">
+      <h3 id="upsellTitle">Complete the fit?</h3>
+      <button class="modalClose" id="upsellClose" aria-label="Close">×</button>
+    </div>
+    <p class="modalCopy">Add the matching leash before checkout.</p>
+
+    <div class="upsellRow">
+      <div class="leashPh"></div>
+      <div class="upsellMeta">
+        <div class="upsellName">Matching Leash</div>
+        <div class="upsellSmall">Clean. Durable. Everyday.</div>
+      </div>
+      <div class="upsellPrice">+$9.99</div>
+    </div>
+
+    <div class="modalActions">
+      <button class="btn" id="addLeashBtn" type="button">Add leash</button>
+      <button class="btn secondary" id="noThanksBtn" type="button">No thanks</button>
+    </div>
+
+    <div class="modalFine">You can remove it any time in cart.</div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+
+
+<script src="js/main.js"></script>
+<script>
+  const {loadCart, removeItem, setQty, cartTotals, MONEY} = window.DogfaceCart || {};
+  const list = document.getElementById("cartList");
+  const subEl = document.getElementById("subVal");
+  const totEl = document.getElementById("cartTotal");
+  const leash = sessionStorage.getItem("thedogface_leash_added")==="1";
+  const leashLine = document.getElementById("leashCartLine");
+
+  function row(item){
+    return `
+      <div class="cartItem">
+        <div class="cartThumb"><img alt="${item.name}" src="${item.img}"></div>
+        <div class="cartMeta">
+          <div class="cartName">${item.name}</div>
+          <div class="cartSmall">Color: ${item.color} · Size: ${item.size}</div>
+          <div class="qtyRow">
+            <button class="qtyBtn" data-sku="${item.sku}" data-act="dec" type="button">–</button>
+            <div class="qtyVal">${item.qty}</div>
+            <button class="qtyBtn" data-sku="${item.sku}" data-act="inc" type="button">+</button>
+            <button class="removeBtn" data-sku="${item.sku}" type="button">Remove</button>
+          </div>
+        </div>
+        <div class="cartPrice">${MONEY(item.price * item.qty)}</div>
+      </div>
+    `;
+  }
+
+  function render(){
+    const items = loadCart ? loadCart() : [];
+    if(!items.length){
+      list.innerHTML = `<div class="emptyCart">
+        <div class="cartName">Your cart is empty.</div>
+        <div class="cartSmall">Pick a color and size, then pre-order.</div>
+        <a class="btn" href="index.html#product" style="margin-top:12px;display:inline-block">Shop</a>
+      </div>`;
+    }else{
+      list.innerHTML = items.map(row).join("");
+    }
+
+    const totals = cartTotals ? cartTotals(items) : {subtotal:0,total:0};
+    let total = totals.total;
+    if(subEl) subEl.textContent = MONEY(totals.subtotal);
+    if(leash){
+      if(leashLine) leashLine.style.display="";
+      total += 9.99;
+    }else{
+      if(leashLine) leashLine.style.display="none";
+    }
+    if(totEl) totEl.textContent = MONEY(total);
+  }
+
+  document.addEventListener("click",(e)=>{
+    const qb = e.target.closest(".qtyBtn");
+    if(qb){
+      const sku = qb.dataset.sku;
+      const act = qb.dataset.act;
+      const items = loadCart();
+      const it = items.find(i=>i.sku===sku);
+      if(!it) return;
+      const next = act==="inc" ? it.qty+1 : it.qty-1;
+      setQty(sku, next);
+      render();
+      return;
+    }
+    const rb = e.target.closest(".removeBtn");
+    if(rb){
+      removeItem(rb.dataset.sku);
+      render();
+    }
+  });
+
+  render();
+</script>
+</body></html>
