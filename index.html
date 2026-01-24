@@ -1,236 +1,345 @@
-
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>THE DOG FACE™</title>
-<link href="css/style.css" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>G300 Sports Smart Glasses</title>
+  <meta name="description" content="Sports smart glasses with 8MP HD camera and hands-free audio. Built for motion." />
+  <meta name="theme-color" content="#07070a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-<div class="accentBar" aria-hidden="true"></div>
-<div class="container">
-<header>
-<strong>THE DOG FACE™</strong>
-<nav class="topNav">
-<a href="shipping.html">Shipping</a>
-<a href="contact.html">Contact</a>
-<a href="faq.html">FAQ</a>
-<a href="reviews.html">Reviews</a>
-<a href="why.html">Why</a>
-<a href="#product">Shop</a>
-<a href="#">Size</a>
-<a href="#">Cart</a>
-</nav>
-</header>
-<section class="hero">
-<div>
-<h1>THE DOG FACE™</h1>
-<p>Premium winter puffer for small dogs.</p>
-<div style="margin-top:32px">
-<a class="btn" href="#product">Shop</a>
-<a class="btn secondary" href="size.html" style="margin-left:12px">Size Guide</a>
-</div>
-</div>
-<img alt="THE DOG FACE lineup" src="assets/images/hero-lineup.png"/>
-</section>
+  <header class="topbar" id="top">
+    <div class="wrap topbar__inner" style="text-align:center;">
+      <a class="brand" href="#top" aria-label="G300 RAZE Home"><img class="brandLogo" src="./assets/img/logo.png" alt="G300 RAZE" /></a>
 
+      <nav class="nav">
+        <a href="#features">FEATURES</a>
+        <a href="#colors">COLORS</a>
+        <a href="#specs">SPECS</a>
+        <a href="#faq">FAQ</a>
+      </nav>
 
-
-</div>
-
-
-<!-- Home contact (placeholder) -->
-<section class="section" id="home-contact">
-  <div class="container">
-    <div class="block" style="max-width:720px">
-      <h3>Questions?</h3>
-      <p>Send a message. We reply fast.</p>
-      <form class="formInline" onsubmit="return false">
-        <input placeholder="Email" aria-label="Email" />
-        <input placeholder="Message" aria-label="Message" />
-        <button class="btn" type="button">Send</button>
-      </form>
-      <div class="microNote">Placeholder — connect to your support inbox soon.</div>
-    </div>
-  </div>
-</section>
-
-<section class="pdp" id="product">
-  <div class="container">
-    <div class="pdpGrid">
-      <div class="productImg">
-        <img id="mainProduct" data-parallax="0.03" alt="THE DOG FACE Puffer - selected color" src="assets/images/black.png">
-        <div class="thumbRow" aria-label="Product photos">
-          <button class="thumb" data-color="black" aria-label="View Jet Black photo">
-            <img src="assets/images/black.png" alt="Jet Black puffer photo">
-          </button>
-          <button class="thumb" data-color="green" aria-label="View Forest Green photo">
-            <img src="assets/images/green.png" alt="Forest Green puffer photo">
-          </button>
-          <button class="thumb" data-color="orange" aria-label="View Burnt Orange photo">
-            <img src="assets/images/orange.png" alt="Burnt Orange puffer photo">
-          </button>
-        </div>
+      <div class="topbar__cta">
+        <span class="priceChip"><span class="strike">$147.99</span> <strong>$94.99</strong> CAD</span>
+        <a class="btn btn--primary btn--sm js-buy" href="#buy">BUY NOW</a>
       </div>
+    </div>
+  </header>
 
-      <div class="productInfo">
-        <h2>Puffer Jacket</h2>
-        <div class="priceRow">
-              <div class="price">$64.99 <span>$104.99</span></div>
-              <div class="saleBadge"><span class="salePct">38% OFF</span><span class="saleTag">Winter Sale</span></div>
+  <div class="heroBg" aria-hidden="true"></div>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <div class="stickerRow">
+            <span class="sticker">8MP CAMERA</span>
+            <span class="sticker">HD RECORDING</span>
+            <span class="sticker">HANDS‑FREE</span>
+            <span class="sticker">SPORTS READY</span>
+          </div>
+
+          <h1 class="h1">
+            BUILT FOR SPEED.<br/>
+            MADE FOR CHAOS.
+          </h1>
+
+          <p class="lead">
+            SPORTS SMART GLASSES WITH INTEGRATED CAMERA + AUDIO.
+            MADE FOR RIDES, RUNS, AND FULL‑SEND DAYS.
+          </p>
+
+          <div class="hero__pricing">
+            <span class="badge">LAUNCH PRICE</span>
+            <div class="priceLine">
+              <span class="strike">$147.99</span>
+              <span class="now">$94.99 CAD</span>
+              <span class="save">SAVE $53</span>
             </div>
-            <div class="saveLine">Save $40.00 today.</div>
+          </div>
 
-        <div class="optionLabel">Color</div>
-        <div class="swatches" role="radiogroup" aria-label="Select color">
-          <button class="swatchBtn" data-color="black" role="radio" aria-checked="true">
-            <span class="swatchDot" style="background:#0b0b0e"></span>
-            <span class="swatchText">Jet Black</span>
-          </button>
-          <button class="swatchBtn" data-color="green" role="radio" aria-checked="false">
-            <span class="swatchDot" style="background:#1f8f57"></span>
-            <span class="swatchText">Forest Green</span>
-          </button>
-          <button class="swatchBtn" data-color="orange" role="radio" aria-checked="false">
-            <span class="swatchDot" style="background:#e4572e"></span>
-            <span class="swatchText">Burnt Orange</span>
-          </button>
+          <div class="hero__cta">
+            <a class="btn btn--primary js-buy" href="#buy">BUY NOW</a>
+            <a class="btn btn--ghost" href="#colors">PICK YOUR COLOR</a>
+          </div>
+
+          <div class="trustBar" aria-label="Trust badges">
+            <div class="trustItem">SECURE CHECKOUT</div>
+            <div class="trustItem">FREE SHIPPING (CANADA)</div>
+            <div class="trustItem">30‑DAY RETURNS</div>
+            <div class="trustItem">1‑YEAR WARRANTY</div>
+          </div>
+
+          <div class="micro">
+            No fake timers. No hype. Just gear built for motion.
+          </div>
         </div>
-        <div class="microNote">Black photo = Black. Green photo = Green. Orange photo = Orange.</div>
 
-        <div class="optionLabel" style="margin-top:18px">Size</div>
-        <div class="sizeRow" role="radiogroup" aria-label="Select size">
-          <button class="size active" data-size="S" role="radio" aria-checked="true">S</button>
-          <button class="size" data-size="M" role="radio" aria-checked="false">M</button>
-          <button class="size" data-size="L" role="radio" aria-checked="false">L</button>
-          <button class="size" data-size="XL" role="radio" aria-checked="false">XL</button>
-          <button class="size" data-size="2XL" role="radio" aria-checked="false">2XL</button>
+        <div class="hero__media">
+          <div class="productFrame">
+            <img id="heroProduct" class="productImg" src="./assets/img/variant-black.webp" alt="G300 Sports Smart Glasses - Carbon Black" />
+            <div class="lensGlare" aria-hidden="true"></div>
+            <div class="cornerNote" aria-hidden="true">NEW DROP</div>
+          </div>
+
+          <div class="picker" id="colors">
+            <div class="picker__row">
+              <div class="picker__label">COLOR</div>
+              <div class="swatches" role="tablist" aria-label="Color variants">
+                <button class="swatch is-active" data-variant="black" aria-pressed="true">
+                  <span class="dot dot--black"></span><span>BLACKOUT</span>
+                </button>
+                <button class="swatch" data-variant="blue" aria-pressed="false">
+                  <span class="dot dot--blue"></span><span>ELECTRIC BLUE</span>
+                </button>
+                <button class="swatch" data-variant="orange" aria-pressed="false">
+                  <span class="dot dot--orange"></span><span>ORANGE CHAOS</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="picker__row">
+              <div class="picker__label">SIZE</div>
+              <div class="sizes" role="tablist" aria-label="Size options">
+                <button class="pill is-active" data-size="small" aria-pressed="true">SMALL</button>
+                <button class="pill" data-size="large" aria-pressed="false">LARGE</button>
+              </div>
+            </div>
+
+            <div class="picker__row picker__row--meta">
+              <div class="metaLine"><span class="metaKey">FIT NOTE</span><span class="metaVal" id="fitNote">TIGHTER SPORT FIT.</span></div>
+              <div class="metaLine"><span class="metaKey">SHIPPING</span><span class="metaVal">FREE IN CANADA.</span></div>
+            </div>
+          </div>
         </div>
-        <a class="miniLink" href="size.html">Size chart</a>
-
-        <div class="ctaStack"><a class="btn" id="addToCartBtn" href="cart.html">Pre‑Order</a><a class="btn secondary" id="buyNowBtn" href="cart.html" style="margin-top:10px">Pre‑Order Now</a></div><div class="trustRow">Secure checkout · Easy returns · Fast support</div>
-<div class="preorderNote">Pre‑order: we’ll email you as soon as your jacket ships.</div>
-<div class="deliveryWindow">Estimated ship window: 2–3 weeks.</div>
-<div class="shipEstimate">Pre-order: we’ll email you with tracking when it ships.</div>
-<div class="microTrust">15‑day refunds · Size exchanges · Secure payments</div>
-
-        <div class="microUrgency">Limited winter drop. While sizes last.</div>
-        <p class="desc">
-          Warm. Lightweight. Made for cold walks and good outfits.
-        </p>
       </div>
-    </div>
-  </div>
-</section>
 
-<script src="js/main.js"></script>
-
-
-
-
-
-<section class="section emailStrip" id="updates">
-  <div class="container emailStripInner">
-    <div>
-      <div class="emailTitle">Get drop updates</div>
-      <div class="emailSub">Pre-order shipping updates + restocks. No spam.</div>
-    </div>
-    <form class="emailForm" onsubmit="return false">
-      <input id="emailInput" type="email" placeholder="Email address" aria-label="Email address" />
-      <button class="btn" id="emailJoinBtn" type="button">Join</button>
-    </form>
-  </div>
-  <div class="container"><div class="microNote">Placeholder — connect later (Klaviyo/Mailchimp).</div></div>
-</section>
-<section class="section" id="trust">
-  <div class="container">
-    <div class="trustGrid">
-      <div class="trustCard">
-        <h3>Shipping</h3>
-        <p>Processing: 1–3 business days.</p>
-        <p>Delivery: 7–15 business days (typical).</p>
-        <a class="miniLink" href="shipping.html">Shipping & returns</a>
-      </div>
-      <div class="trustCard">
-        <h3>Returns</h3>
-        <p>Start a return or exchange within 30 days of delivery.</p>
-        <p>Unused items only.</p>
-        <a class="miniLink" href="policies.html">Refund policy</a>
-      </div>
-      <div class="trustCard">
-        <h3>Support</h3>
-        <p>Email support and fast replies.</p>
-        <p class="mutedSmall">Add your real support email in contact.html.</p>
-        <a class="miniLink" href="contact.html">Contact</a>
-      </div>
-      <div class="trustCard">
-        <h3>Payments</h3>
-        <p>Secure payment processing.</p>
-        <div class="payRow">
-          <span class="payTag">Visa</span>
-          <span class="payTag">Mastercard</span>
-          <span class="payTag">AmEx</span>
-          <span class="payTag">Apple Pay</span>
-          <span class="payTag">Google Pay</span>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>RECORD EVERYTHING</span><span>•</span>
+          <span>BUILT TO MOVE</span><span>•</span>
+          <span>SPORT‑READY</span><span>•</span>
+          <span>HANDS‑FREE</span><span>•</span>
+          <span>RECORD EVERYTHING</span><span>•</span>
+          <span>BUILT TO MOVE</span><span>•</span>
+          <span>SPORT‑READY</span><span>•</span>
+          <span>HANDS‑FREE</span><span>•</span>
         </div>
-        <div class="mutedSmall">Placeholders until Stripe/Shopify is connected.</div>
       </div>
-    </div>
-  </div>
-</section>
-<footer class="siteFooter">
-  <div class="container footerGrid">
-    <div>
-      <strong>THE DOG FACE™</strong>
-      <div class="footerSub">Premium winter puffer for small dogs.</div>
-    </div>
-    <div class="footerLinks">
-            <a href="why.html">Why choose us</a>
-      <a href="size.html">Size guide</a>
-      <a href="policies.html">Policies</a>
-      <a href="footer.html">Footer info</a>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<!-- Upsell modal (Product Page) -->
-<div class="modalOverlay" id="upsellOverlay" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="upsellTitle">
-    <div class="modalTop">
-      <h3 id="upsellTitle">Complete the fit?</h3>
-      <button class="modalClose" id="upsellClose" aria-label="Close">×</button>
-    </div>
-    <p class="modalCopy">Add the matching leash before checkout.</p>
+    <section class="section diag" id="features">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <h2 class="h2">POSTER‑LEVEL FEATURES.</h2>
+          <p class="sub">Short. Sharp. Useful.</p>
+        </div>
 
-    <div class="upsellRow">
-      <div class="leashPh"></div>
-      <div class="upsellMeta">
-        <div class="upsellName">Matching Leash</div>
-        <div class="upsellSmall">Clean. Durable. Everyday.</div>
+        <div class="grid4">
+          <article class="card reveal">
+            <div class="card__tag">CAMERA</div>
+            <h3>8MP HD</h3>
+            <p>Hands‑free capture. Ride footage. Run footage. Whatever day you’re having.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__tag">AUDIO</div>
+            <h3>MIC + SPEAKER</h3>
+            <p>Quick calls and cues without earbuds. Keep your ears free.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__tag">CONTROL</div>
+            <h3>ONE‑TOUCH</h3>
+            <p>Buttons you can hit mid‑motion. No fiddling. No drama.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__tag">POWER</div>
+            <h3>MAG CHARGE</h3>
+            <p>Snap‑on charging. Simple and secure.</p>
+          </article>
+        </div>
       </div>
-      <div class="upsellPrice">+$9.99</div>
+    </section>
+
+    <section class="section posters" id="variants">
+      <div class="poster poster--black" data-accent="black">
+        <div class="wrap poster__grid">
+          <div class="poster__copy reveal">
+            <div class="poster__label">BLACKOUT</div>
+            <h2 class="h2">STEALTH MODE.<br/>FULL SEND.</h2>
+            <p class="sub">Low‑key frame. High‑key chaos.</p>
+            <a class="btn btn--primary js-set" data-variant="black" href="#buy">PICK BLACKOUT</a>
+          </div>
+          <div class="poster__media">
+            <img class="posterImg" src="./assets/img/variant-black.webp" alt="Blackout glasses" />
+          </div>
+        </div>
+      </div>
+
+      <div class="poster poster--blue" data-accent="blue">
+        <div class="wrap poster__grid">
+          <div class="poster__copy reveal">
+            <div class="poster__label">ELECTRIC BLUE</div>
+            <h2 class="h2">LOUD.<br/>FAST.<br/>ILLEGAL‑LOOKING.</h2>
+            <p class="sub">Blue frame. Mirror lens. Zero apologies.</p>
+            <a class="btn btn--primary js-set" data-variant="blue" href="#buy">PICK BLUE</a>
+          </div>
+          <div class="poster__media">
+            <img class="posterImg" src="./assets/img/variant-blue.webp" alt="Electric Blue glasses" />
+          </div>
+        </div>
+      </div>
+
+      <div class="poster poster--orange" data-accent="orange">
+        <div class="wrap poster__grid">
+          <div class="poster__copy reveal">
+            <div class="poster__label">ORANGE CHAOS</div>
+            <h2 class="h2">DUST.<br/>SUN.<br/>MAYHEM.</h2>
+            <p class="sub">If it’s bright outside, good. If it’s not, go anyway.</p>
+            <a class="btn btn--primary js-set" data-variant="orange" href="#buy">PICK ORANGE</a>
+          </div>
+          <div class="poster__media">
+            <img class="posterImg" src="./assets/img/variant-orange.webp" alt="Orange Chaos glasses" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section diag" id="specs">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <h2 class="h2">SPECS THAT MATTER.</h2>
+          <p class="sub">No filler. No nonsense.</p>
+        </div>
+
+        <div class="specs">
+          <div class="specList">
+            <div class="spec reveal"><span>CAMERA</span><strong>8MP HD</strong></div>
+            <div class="spec reveal"><span>AUDIO</span><strong>MICROPHONE + SPEAKER</strong></div>
+            <div class="spec reveal"><span>CONNECT</span><strong>BLUETOOTH</strong></div>
+            <div class="spec reveal"><span>CHARGE</span><strong>MAGNETIC</strong></div>
+            <div class="spec reveal"><span>CONTROL</span><strong>BUTTONS</strong></div>
+            <div class="spec reveal"><span>USE</span><strong>OUTDOOR / TRAINING</strong></div>
+          </div>
+
+          <div class="specMedia">
+            <img id="specProduct" class="productImg productImg--spec" src="./assets/img/variant-black.webp" alt="G300 glasses product image" />
+            <div class="specSticker reveal">SPORT‑READY</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section buy" id="buy">
+      <div class="wrap buy__grid">
+        <div class="buy__copy reveal">
+          <h2 class="h2">DROP PRICE. MOVE FAST.</h2>
+          <p class="sub">Launch pricing includes free Canadian shipping.</p>
+
+          <div class="priceBig">
+            <span class="strike">$147.99</span>
+            <span class="now">$94.99 CAD</span>
+            <span class="save">SAVE $53</span>
+          </div>
+
+          <div class="buyMeta">
+            <div class="buyRow"><span>COLOR</span><strong id="buyColor">BLACKOUT</strong></div>
+            <div class="buyRow"><span>SIZE</span><strong id="buySize">SMALL</strong></div>
+          </div>
+
+          <div class="buyCtas">
+            <button class="btn btn--primary btn--lg" id="checkoutBtn">CHECKOUT</button>
+            <a class="btn btn--ghost btn--lg" href="#colors">CHANGE OPTIONS</a>
+          </div>
+
+          <div class="trustGrid">
+            <div class="trustCard">SECURE CHECKOUT (STRIPE READY)</div>
+            <div class="trustCard">FREE SHIPPING (CANADA)</div>
+            <div class="trustCard">30‑DAY RETURNS</div>
+            <div class="trustCard">SUPPORT EMAIL IN FOOTER</div>
+          </div>
+
+          <div class="micro">
+            Apple Pay / Google Pay supported in Stripe Checkout (when enabled in your Stripe settings).
+          </div>
+        </div>
+
+        <div class="buy__media">
+          
+          <div class="gallery">
+            <img class="galleryImg" src="./assets/img/variant-black.webp" alt="Blackout glasses" />
+            <img class="galleryImg" src="./assets/img/variant-blue.webp" alt="Electric Blue glasses" />
+            <img class="galleryImg" src="./assets/img/variant-orange.webp" alt="Orange Chaos glasses" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section diag" id="faq">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <h2 class="h2">FAQ. QUICK.</h2>
+          <p class="sub">Straight answers.</p>
+        </div>
+
+        <div class="faq">
+          <details class="faqItem reveal">
+            <summary>Is it legal to wear?</summary>
+            <p>Follow local laws around recording and privacy. Use responsibly.</p>
+          </details>
+
+          <details class="faqItem reveal">
+            <summary>Does it work in Canada?</summary>
+            <p>Yes — we ship within Canada and support standard Bluetooth connectivity.</p>
+          </details>
+
+          <details class="faqItem reveal">
+            <summary>What’s the return policy?</summary>
+            <p>30‑day returns. See Refund Policy in the footer.</p>
+          </details>
+
+          <details class="faqItem reveal">
+            <summary>How long does shipping take?</summary>
+            <p>Typical delivery: 5–12 business days in Canada. Tracking is sent when shipped.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section footerTop">
+      <div class="wrap footerTop__inner">
+        <div class="footerPitch">
+          <h2 class="h2">READY? GET LOUD.</h2>
+          <p class="sub">Pick a color. Pick a size. Hit checkout.</p>
+        </div>
+        <a class="btn btn--primary btn--lg js-buy" href="#buy">BUY NOW</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <img class="footerLogo" src="./assets/img/logo.png" alt="G300 RAZE" />
+        <div class="footer__small">Support: <a href="mailto:support@yourstore.com">support@yourstore.com</a></div>
+      </div>
+      <div class="footer__links">
+        <a href="./refund.html">Refund Policy</a>
+        <a href="./shipping.html">Shipping Policy</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </div>
+      <div class="footer__small muted">© 2026 G300. All rights reserved.</div>
     </div>
+  </footer>
 
-    <div class="modalActions">
-      <button class="btn" id="addLeashBtn" type="button">Add leash</button>
-      <button class="btn secondary" id="noThanksBtn" type="button">No thanks</button>
-    </div>
-
-    <div class="modalFine">You can remove it any time in cart.</div>
-  </div>
-</div>
-
-<script src="js/main.js"></script>
-
-<div class="stickyBar" id="stickyBar" aria-hidden="true">
-  <div class="stickyLeft">
-    <div class="stickyName">THE DOG FACE™ Puffer</div>
-    <div class="stickyPrice"><span class="now">$64.99</span> <span class="was">$104.99</span></div>
-  </div>
-  <button class="btn stickyBtn" id="stickyPreorderBtn" type="button">Pre-Order</button>
-</div>
-
+  <script src="./app.js"></script>
 </body>
-
 </html>
