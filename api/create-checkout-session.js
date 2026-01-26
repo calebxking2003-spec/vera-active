@@ -2,50 +2,48 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-/**
- * Env vars required on Vercel (Production):
- * - STRIPE_SECRET_KEY = sk_live_...
- * - STRIPE_PRICE_ID   = price_...
- * - SITE_URL          = https://your-domain.vercel.app
- */
+const ALLOWED_VARIANTS = new Set(["black", "blue", "orange"]);
+const ALLOWED_SIZES = new Set(["small", "large"]);
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const { color, size } = req.body || {};
-    if (!color || !size) {
-      return res.status(400).json({ error: "Missing color or size" });
-    }
+    const { variant, size } = req.body || {};
 
-    const siteUrl = process.env.SITE_URL;
-    const priceId = process.env.STRIPE_PRICE_ID;
-
-    if (!process.env.STRIPE_SECRET_KEY) {
-      return res.status(500).json({ error: "Missing STRIPE_SECRET_KEY env var" });
-    }
-    if (!siteUrl) {
-      return res.status(500).json({ error: "Missing SITE_URL env var" });
-    }
-    if (!priceId) {
-      return res.status(500).json({ error: "Missing STRIPE_PRICE_ID env var" });
+    if (!ALLOWED_VARIANTS.has(variant) || !ALLOWED_SIZES.has(size)) {
+      return res.status(400).json({ error: "Invalid options" });
     }
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      allow_promotion_codes: true,
-      line_items: [{ price: priceId, quantity: 1 }],
-      metadata: { color, size },
-      custom_text: {
-        submit: { message: `Selected: ${color} / ${size}` }
+      line_items: [
+        { price: process.env.STRIPE_PRICE_ID, quantity: 1 }
+      ],
+      success_url: `${process.env.SITE_URL}?success=1`,
+      cancel_url: `${process.env.SITE_URL}?canceled=1`,
+
+      metadata: {
+        product: "G300 RAZE",
+        variant,
+        size
       },
-      success_url: `${siteUrl}/success.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteUrl}/product.html`,
+
+      shipping_address_collection: {
+        allowed_countries: [
+          "CA","US","GB","AU","NZ","DE","FR","ES","IT","NL",
+          "SE","NO","DK","FI","IE","JP","SG","HK"
+        ]
+      },
+
+      phone_number_collection: { enabled: true }
     });
 
     return res.status(200).json({ url: session.url });
   } catch (err) {
-    return res.status(500).json({ error: err?.message || "Server error" });
+    console.error(err);
+    return res.status(500).json({ error: "Checkout failed" });
   }
 }
