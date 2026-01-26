@@ -128,7 +128,7 @@ function initCheckout(){
   const paymentLink = window.STRIPE_PAYMENT_LINK;
 
   // Option B: Your server endpoint that creates a Stripe Checkout Session
-  // Example: window.STRIPE_CHECKOUT_ENDPOINT = "https://yourdomain.com/create-checkout-session";
+  // Example: window.STRIPE_CHECKOUT_ENDPOINT = "/api/create-checkout-session";
   const endpoint = window.STRIPE_CHECKOUT_ENDPOINT;
 
   if(!btn) return;
@@ -160,7 +160,7 @@ function initCheckout(){
         if(data && data.url){
           window.location.href = data.url;
         } else {
-          alert("Checkout is not configured yet. Add STRIPE_PAYMENT_LINK or STRIPE_CHECKOUT_ENDPOINT.");
+          alert("Checkout isn't live yet — set Stripe env vars on Vercel. Add STRIPE_PAYMENT_LINK or STRIPE_CHECKOUT_ENDPOINT.");
         }
       } catch(err){
         console.error(err);
@@ -172,7 +172,7 @@ function initCheckout(){
       return;
     }
 
-    alert("Checkout is not configured yet. Add STRIPE_PAYMENT_LINK or STRIPE_CHECKOUT_ENDPOINT in app.js / window.");
+    alert("Checkout isn't live yet — set Stripe env vars on Vercel. Add STRIPE_PAYMENT_LINK or STRIPE_CHECKOUT_ENDPOINT in app.js / window.");
   });
 }
 

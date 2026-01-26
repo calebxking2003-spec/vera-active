@@ -1,7 +1,8 @@
 {
-  "name": "vera-active-luxury",
+  "name": "g300-raze-site",
   "private": true,
-  "type": "module",
+  "version": "1.0.0",
+  "type": "commonjs",
   "dependencies": {
     "stripe": "^16.0.0"
   }
