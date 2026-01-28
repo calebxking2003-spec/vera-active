@@ -1,12 +1,17 @@
-# Deploy (Vercel + Stripe Checkout)
+# G300 RAZE — Deploy on Vercel (Stripe Checkout)
 
-## Vercel Env Vars (Production)
+## 1) Add Environment Variables (Production)
+Vercel → Project → Settings → Environment Variables:
+
 - STRIPE_SECRET_KEY = sk_test_... (or sk_live_...)
 - STRIPE_PRICE_ID  = price_...
 - SITE_URL         = https://your-domain.com   (no trailing slash)
 
-## Deploy
-Push this folder to GitHub and import into Vercel (or drag/drop if supported).
+Then click **Redeploy**.
 
-## Test
-Pick color + size → click BUY/CHECKOUT → you should be redirected to Stripe Checkout.
+## 2) Install deps (if running locally)
+npm install
+
+## 3) Test
+Pick Color + Size → click Buy / Checkout → Stripe Checkout opens.
+In Stripe Dashboard → Payment → Metadata shows variant + size.

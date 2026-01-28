@@ -1,5 +1,4 @@
 const Stripe = require("stripe");
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const ALLOWED_VARIANTS = new Set(["black","blue","orange"]);
@@ -30,9 +29,9 @@ module.exports = async (req, res) => {
       success_url: `${process.env.SITE_URL}/?success=1`,
       cancel_url: `${process.env.SITE_URL}/?canceled=1`,
       metadata: { product: "G300 RAZE", variant, size },
-      shipping_address_collection: {
-        allowed_countries: ["CA","US","GB","AU","NZ","DE","FR","ES","IT","NL","SE","NO","DK","FI","IE","JP","SG","HK"]
-      },
+      shipping_address_collection: { allowed_countries: [
+        "CA","US","GB","AU","NZ","DE","FR","ES","IT","NL","SE","NO","DK","FI","IE","JP","SG","HK"
+      ]},
       phone_number_collection: { enabled: true }
     });
 
