@@ -124,8 +124,8 @@ function initCheckout(){
   const btn = document.getElementById("checkoutBtn");
 
   // Option A: Stripe Payment Link (recommended for quick launch)
-  // Example: window.STRIPE_PAYMENT_LINK = "https://buy.stripe.com/xxxx";
-  const paymentLink = window.STRIPE_PAYMENT_LINK;
+  // Example: window.STRIPE env vars = "https://buy.stripe.com/xxxx";
+  const paymentLink = window.STRIPE env vars;
 
   // Option B: Your server endpoint that creates a Stripe Checkout Session
   // Example: window.STRIPE_CHECKOUT_ENDPOINT = "/api/create-checkout-session";
@@ -160,7 +160,7 @@ function initCheckout(){
         if(data && data.url){
           window.location.href = data.url;
         } else {
-          alert("Checkout isn't live yet — set Stripe env vars on Vercel. Add STRIPE_PAYMENT_LINK or STRIPE_CHECKOUT_ENDPOINT.");
+          alert("Checkout is not configured yet. Add STRIPE env vars or STRIPE_CHECKOUT_ENDPOINT.");
         }
       } catch(err){
         console.error(err);
@@ -172,7 +172,7 @@ function initCheckout(){
       return;
     }
 
-    alert("Checkout isn't live yet — set Stripe env vars on Vercel. Add STRIPE_PAYMENT_LINK or STRIPE_CHECKOUT_ENDPOINT in app.js / window.");
+    alert("Checkout is not configured yet. Add STRIPE env vars or STRIPE_CHECKOUT_ENDPOINT in app.js / window.");
   });
 }
 
@@ -193,3 +193,30 @@ function initBuyAnchors(){
   initCheckout();
   initBuyAnchors();
 })();
+
+
+async function __g300Checkout(payload){
+  const res = await fetch(window.STRIPE_CHECKOUT_ENDPOINT, {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(payload)
+  });
+  const data = await res.json();
+  if (data?.url) window.location.href = data.url;
+  alert("Checkout error. Check Vercel env vars + deployment logs.");
+}
+
+function __getSelectedVariant(){
+  return (window.state && window.state.variant) || (typeof state !== "undefined" && state.variant) || "black";
+}
+function __getSelectedSize(){
+  return (window.state && window.state.size) || (typeof state !== "undefined" && state.size) || "small";
+}
+
+document.querySelectorAll('[data-checkout], #checkoutBtn, a[href="#buy"], a[href="#checkout"]').forEach((el)=>{
+  el.addEventListener("click", (e)=>{
+    // Only intercept if element is a button/cta, not general anchors
+    if (el.tagName === "A") e.preventDefault();
+    __g300Checkout({ variant: __getSelectedVariant(), size: __getSelectedSize() });
+  });
+});

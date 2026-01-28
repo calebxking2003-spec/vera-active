@@ -2,8 +2,8 @@ const Stripe = require("stripe");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const ALLOWED_VARIANTS = new Set(["black", "blue", "orange"]);
-const ALLOWED_SIZES = new Set(["small", "large"]);
+const ALLOWED_VARIANTS = new Set(["black","blue","orange"]);
+const ALLOWED_SIZES = new Set(["small","large"]);
 
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
@@ -19,9 +19,9 @@ module.exports = async (req, res) => {
       return res.json({ error: "Invalid options" });
     }
 
-    if (!process.env.STRIPE_PRICE_ID || !process.env.SITE_URL) {
+    if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_PRICE_ID || !process.env.SITE_URL) {
       res.statusCode = 500;
-      return res.json({ error: "Server env not set" });
+      return res.json({ error: "Missing env vars" });
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -31,10 +31,7 @@ module.exports = async (req, res) => {
       cancel_url: `${process.env.SITE_URL}/?canceled=1`,
       metadata: { product: "G300 RAZE", variant, size },
       shipping_address_collection: {
-        allowed_countries: [
-          "CA","US","GB","AU","NZ","DE","FR","ES","IT","NL",
-          "SE","NO","DK","FI","IE","JP","SG","HK"
-        ]
+        allowed_countries: ["CA","US","GB","AU","NZ","DE","FR","ES","IT","NL","SE","NO","DK","FI","IE","JP","SG","HK"]
       },
       phone_number_collection: { enabled: true }
     });
