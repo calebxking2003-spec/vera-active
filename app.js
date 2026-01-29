@@ -1,92 +1,75 @@
-
 /**
- * Pit Viper-ish site interactions:
- * - Variant + size selectors (updates images + accent colors)
- * - Scroll reveals (IntersectionObserver)
- * - Checkout button wiring (Stripe Payment Link OR your endpoint)
+ * G300 RAZE — interactions (CLEAN, single checkout)
+ * - Variant + size selectors (updates images + accents)
+ * - Scroll reveals
+ * - ONE checkout button in the Buy section (no duplicate handlers)
  *
- * IMPORTANT: product images are NOT animated (no transforms).
+ * IMPORTANT: product images are NOT animated.
  */
 
-const state = {
-  variant: "black",
-  size: "small",
-};
+window.STRIPE_CHECKOUT_ENDPOINT = "/api/create-checkout-session";
+
+const state = { variant: "black", size: "small" };
 
 const variantData = {
-  black: {
-    name: "BLACKOUT",
-    img: "./assets/img/variant-black.webp",
-    accent: "#b6ff00",
-    accent2: "#00d4ff",
-    fitNoteSmall: "TIGHTER SPORT FIT.",
-    fitNoteLarge: "ROOMIER SPORT FIT.",
-  },
-  blue: {
-    name: "ELECTRIC BLUE",
-    img: "./assets/img/variant-blue.webp",
-    accent: "#00d4ff",
-    accent2: "#2d7cff",
-    fitNoteSmall: "TIGHTER SPORT FIT.",
-    fitNoteLarge: "ROOMIER SPORT FIT.",
-  },
-  orange: {
-    name: "ORANGE CHAOS",
-    img: "./assets/img/variant-orange.webp",
-    accent: "#ff5a00",
-    accent2: "#00ffc6",
-    fitNoteSmall: "TIGHTER SPORT FIT.",
-    fitNoteLarge: "ROOMIER SPORT FIT.",
-  }
+  black: { name:"BLACKOUT", img:"./assets/img/variant-black.webp", accent:"#b6ff00", accent2:"#00d4ff",
+    fitNoteSmall:"TIGHTER SPORT FIT.", fitNoteLarge:"ROOMIER SPORT FIT." },
+  blue: { name:"ELECTRIC BLUE", img:"./assets/img/variant-blue.webp", accent:"#00d4ff", accent2:"#2d7cff",
+    fitNoteSmall:"TIGHTER SPORT FIT.", fitNoteLarge:"ROOMIER SPORT FIT." },
+  orange: { name:"ORANGE CHAOS", img:"./assets/img/variant-orange.webp", accent:"#ff5a00", accent2:"#00ffc6",
+    fitNoteSmall:"TIGHTER SPORT FIT.", fitNoteLarge:"ROOMIER SPORT FIT." }
 };
 
-function setCSSAccent(vKey){
-  const v = variantData[vKey];
+function setCSSAccent(k){
+  const v = variantData[k]; if(!v) return;
   document.documentElement.style.setProperty("--accent", v.accent);
   document.documentElement.style.setProperty("--accent2", v.accent2);
 }
 
-function setVariant(vKey){
-  if(!variantData[vKey]) return;
-  state.variant = vKey;
+function setVariant(k){
+  if(!variantData[k]) return;
+  state.variant = k;
 
-  // update swatches
   document.querySelectorAll(".swatch").forEach(btn=>{
-    const active = btn.dataset.variant === vKey;
+    const active = btn.dataset.variant === k;
     btn.classList.toggle("is-active", active);
     btn.setAttribute("aria-pressed", active ? "true" : "false");
   });
 
-  // update images (instant swap)
-  const nextSrc = variantData[vKey].img;
+  const nextSrc = variantData[k].img;
   const hero = document.getElementById("heroProduct");
   const spec = document.getElementById("specProduct");
   if(hero) hero.src = nextSrc;
   if(spec) spec.src = nextSrc;
 
-  // update buy summary
   const bc = document.getElementById("buyColor");
-  if(bc) bc.textContent = variantData[vKey].name;
+  if(bc) bc.textContent = variantData[k].name;
 
-  setCSSAccent(vKey);
+  const note = document.getElementById("fitNote");
+  if(note){
+    note.textContent = state.size === "large" ? variantData[k].fitNoteLarge : variantData[k].fitNoteSmall;
+  }
+
+  setCSSAccent(k);
 }
 
-function setSize(sizeKey){
-  state.size = sizeKey;
+function setSize(s){
+  if(s !== "small" && s !== "large") return;
+  state.size = s;
 
   document.querySelectorAll(".pill").forEach(btn=>{
-    const active = btn.dataset.size === sizeKey;
+    const active = btn.dataset.size === s;
     btn.classList.toggle("is-active", active);
     btn.setAttribute("aria-pressed", active ? "true" : "false");
   });
 
   const bs = document.getElementById("buySize");
-  if(bs) bs.textContent = sizeKey.toUpperCase();
+  if(bs) bs.textContent = s.toUpperCase();
 
-  const note = document.getElementById("fitNote");
   const v = variantData[state.variant];
-  if(note){
-    note.textContent = sizeKey === "large" ? v.fitNoteLarge : v.fitNoteSmall;
+  const note = document.getElementById("fitNote");
+  if(note && v){
+    note.textContent = s === "large" ? v.fitNoteLarge : v.fitNoteSmall;
   }
 }
 
@@ -97,10 +80,8 @@ function initPickers(){
   document.querySelectorAll(".pill").forEach(btn=>{
     btn.addEventListener("click", ()=> setSize(btn.dataset.size));
   });
-
-  // poster buttons
   document.querySelectorAll(".js-set").forEach(a=>{
-    a.addEventListener("click", ()=>{
+    a.addEventListener("click", ()=> {
       const v = a.dataset.variant;
       if(v) setVariant(v);
     });
@@ -109,6 +90,10 @@ function initPickers(){
 
 function initReveals(){
   const els = document.querySelectorAll(".reveal");
+  if(!("IntersectionObserver" in window)){
+    els.forEach(el=> el.classList.add("is-in"));
+    return;
+  }
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
@@ -120,68 +105,47 @@ function initReveals(){
   els.forEach(el=> io.observe(el));
 }
 
-function initCheckout(){
+async function checkout(){
   const btn = document.getElementById("checkoutBtn");
-
-  // Option A: Stripe Payment Link (recommended for quick launch)
-  // Example: window.STRIPE_PAYMENT_LINK = "https://buy.stripe.com/xxxx";
-  const paymentLink = window.STRIPE_PAYMENT_LINK;
-
-  // Option B: Your server endpoint that creates a Stripe Checkout Session
-  // Example: window.STRIPE_CHECKOUT_ENDPOINT = "/api/create-checkout-session";
-  const endpoint = window.STRIPE_CHECKOUT_ENDPOINT;
-
-  if(!btn) return;
-
-  btn.addEventListener("click", async ()=>{
-    if(paymentLink){
-      const url = new URL(paymentLink);
-      // optional: pass selection metadata via query params (depends on your Stripe setup)
-      url.searchParams.set("variant", state.variant);
-      url.searchParams.set("size", state.size);
-      window.location.href = url.toString();
+  if(!window.STRIPE_CHECKOUT_ENDPOINT){
+    alert("Checkout unavailable — missing endpoint.");
+    return;
+  }
+  const old = btn ? btn.textContent : "";
+  try{
+    if(btn){ btn.disabled = true; btn.textContent = "LOADING…"; }
+    const res = await fetch(window.STRIPE_CHECKOUT_ENDPOINT, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ variant: state.variant, size: state.size })
+    });
+    const data = await res.json().catch(()=> ({}));
+    if(res.ok && data?.url){
+      window.location.href = data.url;
       return;
     }
+    console.error("Checkout API error:", res.status, data);
+    alert("Checkout error — check Vercel env vars + logs.");
+  }catch(err){
+    console.error(err);
+    alert("Checkout error — check console + Vercel logs.");
+  }finally{
+    if(btn){ btn.disabled = false; btn.textContent = old || "CHECKOUT"; }
+  }
+}
 
-    if(endpoint){
-      btn.disabled = true;
-      btn.textContent = "LOADING…";
-      try{
-        const res = await fetch(endpoint, {
-          method:"POST",
-          headers:{ "Content-Type":"application/json" },
-          body: JSON.stringify({
-            variant: state.variant,
-            size: state.size,
-            price_cad: 94.99
-          })
-        });
-        const data = await res.json();
-        if(data && data.url){
-          window.location.href = data.url;
-        } else {
-          alert("Checkout is not configured yet. Add STRIPE_PAYMENT_LINK or STRIPE_CHECKOUT_ENDPOINT.");
-        }
-      } catch(err){
-        console.error(err);
-        alert("Checkout error. Check console.");
-      } finally{
-        btn.disabled = false;
-        btn.textContent = "CHECKOUT";
-      }
-      return;
-    }
-
-    alert("Checkout is not configured yet. Add STRIPE_PAYMENT_LINK or STRIPE_CHECKOUT_ENDPOINT in app.js / window.");
+function initBuyScrollLinks(){
+  const go = (e)=>{
+    e.preventDefault();
+    document.getElementById("buy")?.scrollIntoView({ behavior:"smooth", block:"start" });
+  };
+  document.querySelectorAll(".js-buy, [data-buy], a[href='#buy']").forEach(el=>{
+    el.addEventListener("click", go);
   });
 }
 
-function initBuyAnchors(){
-  document.querySelectorAll(".js-buy").forEach(a=>{
-    a.addEventListener("click", ()=>{
-      // nothing special, anchor scroll
-    });
-  });
+function initCheckoutButton(){
+  document.getElementById("checkoutBtn")?.addEventListener("click", checkout);
 }
 
 (function init(){
@@ -190,30 +154,6 @@ function initBuyAnchors(){
   setSize("small");
   initPickers();
   initReveals();
-  initCheckout();
-  initBuyAnchors();
+  initBuyScrollLinks();
+  initCheckoutButton();
 })();
-
-async function __g300Checkout(){
-  const variant = (window.state && window.state.variant) || (typeof state !== "undefined" && state.variant) || "black";
-  const size = (window.state && window.state.size) || (typeof state !== "undefined" && state.size) || "small";
-
-  const res = await fetch(window.STRIPE_CHECKOUT_ENDPOINT, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ variant, size })
-  });
-
-  const data = await res.json();
-  if (data?.url) return (window.location.href = data.url);
-
-  alert("Checkout error. Set STRIPE_SECRET_KEY, STRIPE_PRICE_ID, SITE_URL on Vercel then redeploy.");
-}
-
-// Bind to any checkout CTAs
-document.querySelectorAll("#checkoutBtn, [data-checkout]").forEach((el)=>{
-  el.addEventListener("click", (e)=>{
-    if (el.tagName === "A") e.preventDefault();
-    __g300Checkout();
-  });
-});
