@@ -1,344 +1,244 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>G300 Sports Smart Glasses</title>
-  <meta name="description" content="Sports smart glasses with 8MP HD camera and hands-free audio. Built for motion." />
-  <meta name="theme-color" content="#07070a" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>G300 RAZE — Smart Sports Glasses</title>
+  <meta name="description" content="G300 RAZE smart sports glasses with 8MP HD POV camera, Bluetooth audio, and magnetic charging. Free shipping worldwide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
-  <header class="topbar" id="top">
-    <div class="wrap topbar__inner">
-      <a class="brand" href="#top" aria-label="G300 RAZE Home"><img class="brandLogo" src="./assets/img/logo.png" alt="G300 RAZE" /></a>
+<body class=\"js\">
+  <header class="topbar">
+    <div class="wrap topbar__wrap">
+      <a class="brand" href="#top" aria-label="G300 RAZE home">
+        <img src="./assets/img/logo.png" alt="G300 RAZE" class="brand__logo">
+      </a>
 
-      <nav class="nav">
-        <a href="#features">FEATURES</a>
-        <a href="#colors">COLORS</a>
-        <a href="#specs">SPECS</a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#highlights">Highlights</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#specs">Specs</a>
         <a href="#faq">FAQ</a>
       </nav>
 
-      <div class="topbar__cta">
-        <span class="priceChip"><span class="strike">$147.99</span> <strong>$94.99</strong> CAD</span>
-        <a class="btn btn--primary btn--sm js-buy" href="#buy">BUY NOW</a>
+      <div class="topbar__right">
+        <div class="currency" aria-label="Currency selector">
+          <button class="currency__btn" id="currencyBtn" type="button" aria-haspopup="listbox" aria-expanded="false">CAD</button>
+          <div class="currency__menu" id="currencyMenu" role="listbox" aria-label="Currency options">
+            <button role="option" data-cur="CAD">CAD</button>
+            <button role="option" data-cur="USD">USD</button>
+            <button role="option" data-cur="EUR">EUR</button>
+            <button role="option" data-cur="GBP">GBP</button>
+            <button role="option" data-cur="AUD">AUD</button>
+          </div>
+        </div>
+        <a class="topbar__cta" href="#buy">Buy</a>
       </div>
     </div>
   </header>
 
-  <div class="heroBg" aria-hidden="true"></div>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero__wrap">
+        <div class="hero__left reveal">
+          <div class="kicker">SMART SPORTS GLASSES</div>
+          <h1 class="h1">G300 RAZE</h1>
+          <p class="lead">Clean POV capture, calls, and audio—built into a frame you’ll actually wear.</p>
 
-  <main>
-    <section class="hero" id="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <div class="stickerRow">
-            <span class="sticker">8MP CAMERA</span>
-            <span class="sticker">HD RECORDING</span>
-            <span class="sticker">HANDS‑FREE</span>
-            <span class="sticker">SPORTS READY</span>
+          <div class="price">
+            <div class="price__now" id="priceNow">CA$149.99</div>
+            <div class="price__was" id="priceWas">CA$219.99</div>
+            <div class="pill">FREE SHIPPING INCLUDED</div>
           </div>
 
-          <h1 class="h1">
-            BUILT FOR SPEED.<br/>
-            MADE FOR CHAOS.
-          </h1>
-
-          <p class="lead">
-            SPORTS SMART GLASSES WITH INTEGRATED CAMERA + AUDIO.
-            MADE FOR RIDES, RUNS, AND FULL‑SEND DAYS.
-          </p>
-
-          <div class="hero__pricing">
-            <span class="badge">LAUNCH PRICE</span>
-            <div class="priceLine">
-              <span class="strike">$147.99</span>
-              <span class="now">$94.99 CAD</span>
-              <span class="save">SAVE $53</span>
-            </div>
+          <div class="swatches" aria-label="Choose color">
+            <button class="swatch is-active" type="button" data-variant="black" aria-pressed="true">
+              <span class="dot dot--black"></span><span></span>
+            </button>
+            <button class="swatch" type="button" data-variant="blue" aria-pressed="false">
+              <span class="dot dot--blue"></span><span></span>
+            </button>
+            <button class="swatch" type="button" data-variant="orange" aria-pressed="false">
+              <span class="dot dot--orange"></span><span></span>
+            </button>
           </div>
 
-          <div class="hero__cta">
-            <a class="btn btn--primary js-buy" href="#buy">BUY NOW</a>
-            <a class="btn btn--ghost" href="#colors">PICK YOUR COLOR</a>
+          <div class="selection">
+            <span class="selection__label">Selected</span>
+            <span class="selection__value" id="buyColor"></span>
           </div>
 
-          <div class="trustBar" aria-label="Trust badges">
-            <div class="trustItem">SECURE CHECKOUT</div>
-            <div class="trustItem">FREE SHIPPING (CANADA)</div>
-            <div class="trustItem">30‑DAY RETURNS</div>
-            <div class="trustItem">1‑YEAR WARRANTY</div>
+          <div class="ctaRow">
+            <button class="btn btn--primary" id="checkoutBtn" type="button">Buy now</button>
+            <a class="btn btn--secondary" href="#highlights">Learn more</a>
           </div>
 
-          <div class="micro">
-            No fake timers. No hype. Just gear built for motion.
+          <div class="fineprint">
+            Worldwide shipping. Delivery can take up to 20 days due to current restrictions. Returns within 2 weeks of arrival.
+            <a href="mailto:support@razesmartglasses.com">support@razesmartglasses.com</a>
           </div>
         </div>
 
-        <div class="hero__media">
-          <div class="productFrame">
-            <img id="heroProduct" class="productImg" src="./assets/img/variant-black.webp" alt="G300 Sports Smart Glasses - Carbon Black" />
-            <div class="lensGlare" aria-hidden="true"></div>
-            <div class="cornerNote" aria-hidden="true">NEW DROP</div>
-          </div>
-
-          <div class="picker" id="colors">
-            <div class="picker__row">
-              <div class="picker__label">COLOR</div>
-              <div class="swatches" role="tablist" aria-label="Color variants">
-                <button class="swatch is-active" data-variant="black" aria-pressed="true">
-                  <span class="dot dot--black"></span><span>BLACKOUT</span>
-                </button>
-                <button class="swatch" data-variant="blue" aria-pressed="false">
-                  <span class="dot dot--blue"></span><span>ELECTRIC BLUE</span>
-                </button>
-                <button class="swatch" data-variant="orange" aria-pressed="false">
-                  <span class="dot dot--orange"></span><span>ORANGE CHAOS</span>
-                </button>
+        <div class="hero__right reveal" id="gallery">
+          <div class="galleryCard">
+            <div class="galleryMain">
+              <img id="galleryMain" src="./assets/img/g300-black1.webp" alt="G300 RAZE product image">
+            </div>
+            <div class="galleryThumbs" aria-label="Angle selector">
+              <button class="gThumb is-active" type="button" data-angle="0" aria-label="Angle 1">
+                <img src="./assets/img/g300-black1.webp" alt="">
+              </button>
+              <button class="gThumb" type="button" data-angle="1" aria-label="Angle 2">
+                <img src="./assets/img/g300-black2.webp" alt="">
+              </button>
+              <button class="gThumb" type="button" data-angle="2" aria-label="Angle 3">
+                <img src="./assets/img/g300-black3.webp" alt="">
+              </button>
+            </div>
+            <div class="galleryMeta">
+              <span class="metaLabel">View</span>
               </div>
-            </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="picker__row">
-              <div class="picker__label">SIZE</div>
-              <div class="sizes" role="tablist" aria-label="Size options">
-                <button class="pill is-active" data-size="small" aria-pressed="true">SMALL</button>
-                <button class="pill" data-size="large" aria-pressed="false">LARGE</button>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <span>FREE SHIPPING</span><span>•</span><span>8MP HD POV CAMERA</span><span>•</span><span>BLUETOOTH AUDIO + CALLS</span><span>•</span><span>MAGNETIC CHARGING</span><span>•</span><span>FREE SHIPPING</span><span>•</span><span>8MP HD POV CAMERA</span><span>•</span><span>BLUETOOTH AUDIO + CALLS</span><span>•</span><span>MAGNETIC CHARGING</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="highlights">
+      <div class="wrap">
+        <div class="sectionHead reveal">
+          <h2 class="h2">Highlights</h2>
+          <p class="sub">The essentials—clearly explained. Built for conversion, not confusion.</p>
+        </div>
+
+        <div class="grid3 reveal">
+          <div class="card">
+            <div class="card__k">Camera</div>
+            <div class="card__t">8MP HD POV capture</div>
+            <div class="card__p">Record what you’re doing without pulling out your phone.</div>
+          </div>
+          <div class="card">
+            <div class="card__k">Audio</div>
+            <div class="card__t">Bluetooth calls + music</div>
+            <div class="card__p">Mic + speaker support for daily wear and training.</div>
+          </div>
+          <div class="card">
+            <div class="card__k">Charging</div>
+            <div class="card__t">Magnetic snap-on</div>
+            <div class="card__p">Fast routine: snap, charge, go again.</div>
+          </div>
+        </div>
+
+        <div class="how reveal">
+          <div class="how__left">
+            <h3 class="h3">How it works</h3>
+            <ol class="steps">
+              <li><b>Power on</b><span>Hold the main button until you hear the ready tone.</span></li>
+              <li><b>Pair</b><span>Connect by Bluetooth for audio and calls. Use the app to manage clips.</span></li>
+              <li><b>Record</b><span>Tap to start/stop recording. Quick tap for photos.</span></li>
+              <li><b>Review</b><span>View and export in the companion app. Keep storage clean.</span></li>
+              <li><b>Charge</b><span>Snap on the magnetic cable and top up.</span></li>
+            </ol>
+          </div>
+          <div class="how__right">
+            <div class="panel">
+              <div class="panel__title">Included</div>
+              <div class="chips">
+                <span>Glasses</span><span>Magnetic cable</span><span>Case</span><span>Quick start</span>
               </div>
+              <div class="panel__note">Support: <a href="mailto:support@razesmartglasses.com">support@razesmartglasses.com</a></div>
             </div>
 
-            <div class="picker__row picker__row--meta">
-              <div class="metaLine"><span class="metaKey">FIT NOTE</span><span class="metaVal" id="fitNote">TIGHTER SPORT FIT.</span></div>
-              <div class="metaLine"><span class="metaKey">SHIPPING</span><span class="metaVal">FREE IN CANADA.</span></div>
+            <div class="panel panel--muted">
+              <div class="panel__title">Shipping + returns</div>
+              <div class="panel__note">Free shipping worldwide. Delivery can take up to 20 days due to current restrictions. Returns within 2 weeks after arrival (original box required).</div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <span>RECORD EVERYTHING</span><span>•</span>
-          <span>BUILT TO MOVE</span><span>•</span>
-          <span>SPORT‑READY</span><span>•</span>
-          <span>HANDS‑FREE</span><span>•</span>
-          <span>RECORD EVERYTHING</span><span>•</span>
-          <span>BUILT TO MOVE</span><span>•</span>
-          <span>SPORT‑READY</span><span>•</span>
-          <span>HANDS‑FREE</span><span>•</span>
-        </div>
-      </div>
     </section>
 
-    <section class="section diag" id="features">
+    <section class="section" id="specs">
       <div class="wrap">
         <div class="sectionHead reveal">
-          <h2 class="h2">POSTER‑LEVEL FEATURES.</h2>
-          <p class="sub">Short. Sharp. Useful.</p>
+          <h2 class="h2">Specs</h2>
+          <p class="sub">Simple list. No fluff.</p>
         </div>
 
-        <div class="grid4">
-          <article class="card reveal">
-            <div class="card__tag">CAMERA</div>
-            <h3>8MP HD</h3>
-            <p>Hands‑free capture. Ride footage. Run footage. Whatever day you’re having.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card__tag">AUDIO</div>
-            <h3>MIC + SPEAKER</h3>
-            <p>Quick calls and cues without earbuds. Keep your ears free.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card__tag">CONTROL</div>
-            <h3>ONE‑TOUCH</h3>
-            <p>Buttons you can hit mid‑motion. No fiddling. No drama.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="card__tag">POWER</div>
-            <h3>MAG CHARGE</h3>
-            <p>Snap‑on charging. Simple and secure.</p>
-          </article>
+        <div class="specGrid reveal">
+          <div class="specRow"><span>Camera</span><span>8MP HD</span></div>
+          <div class="specRow"><span>Audio</span><span>Bluetooth speaker + mic</span></div>
+          <div class="specRow"><span>Charging</span><span>Magnetic</span></div>
+          <div class="specRow"><span>App</span><span>Companion app controls</span></div>
+          <div class="specRow"><span>Use</span><span>Hands-free sport capture</span></div>
         </div>
-      </div>
-    </section>
 
-    <section class="section posters" id="variants">
-      <div class="poster poster--black" data-accent="black">
-        <div class="wrap poster__grid">
-          <div class="poster__copy reveal">
-            <div class="poster__label">BLACKOUT</div>
-            <h2 class="h2">STEALTH MODE.<br/>FULL SEND.</h2>
-            <p class="sub">Low‑key frame. High‑key chaos.</p>
-            <a class="btn btn--primary js-set" data-variant="black" href="#buy">PICK BLACKOUT</a>
-          </div>
-          <div class="poster__media">
-            <img class="posterImg" src="./assets/img/variant-black.webp" alt="Blackout glasses" />
-          </div>
-        </div>
-      </div>
+        <div class="divider"></div>
 
-      <div class="poster poster--blue" data-accent="blue">
-        <div class="wrap poster__grid">
-          <div class="poster__copy reveal">
-            <div class="poster__label">ELECTRIC BLUE</div>
-            <h2 class="h2">LOUD.<br/>FAST.<br/>ILLEGAL‑LOOKING.</h2>
-            <p class="sub">Blue frame. Mirror lens. Zero apologies.</p>
-            <a class="btn btn--primary js-set" data-variant="blue" href="#buy">PICK BLUE</a>
+        <div class="buyStrip reveal" id="buy">
+          <div class="buyStrip__left">
+            <div class="buyStrip__title">Ready?</div>
+            <div class="buyStrip__sub">Free shipping included. Limited launch pricing.</div>
           </div>
-          <div class="poster__media">
-            <img class="posterImg" src="./assets/img/variant-blue.webp" alt="Electric Blue glasses" />
-          </div>
-        </div>
-      </div>
-
-      <div class="poster poster--orange" data-accent="orange">
-        <div class="wrap poster__grid">
-          <div class="poster__copy reveal">
-            <div class="poster__label">ORANGE CHAOS</div>
-            <h2 class="h2">DUST.<br/>SUN.<br/>MAYHEM.</h2>
-            <p class="sub">If it’s bright outside, good. If it’s not, go anyway.</p>
-            <a class="btn btn--primary js-set" data-variant="orange" href="#buy">PICK ORANGE</a>
-          </div>
-          <div class="poster__media">
-            <img class="posterImg" src="./assets/img/variant-orange.webp" alt="Orange Chaos glasses" />
+          <div class="buyStrip__right">
+            <div class="buyStrip__price"><span id="priceNow2">CA$149.99</span><small id="priceWas2">CA$219.99</small></div>
+            <button class="btn btn--primary" data-checkout type="button">Buy now</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section diag" id="specs">
+    <section class="section" id="faq">
       <div class="wrap">
         <div class="sectionHead reveal">
-          <h2 class="h2">SPECS THAT MATTER.</h2>
-          <p class="sub">No filler. No nonsense.</p>
+          <h2 class="h2">FAQ</h2>
+          <p class="sub">Clear answers.</p>
         </div>
 
-        <div class="specs">
-          <div class="specList">
-            <div class="spec reveal"><span>CAMERA</span><strong>8MP HD</strong></div>
-            <div class="spec reveal"><span>AUDIO</span><strong>MICROPHONE + SPEAKER</strong></div>
-            <div class="spec reveal"><span>CONNECT</span><strong>BLUETOOTH</strong></div>
-            <div class="spec reveal"><span>CHARGE</span><strong>MAGNETIC</strong></div>
-            <div class="spec reveal"><span>CONTROL</span><strong>BUTTONS</strong></div>
-            <div class="spec reveal"><span>USE</span><strong>OUTDOOR / TRAINING</strong></div>
-          </div>
-
-          <div class="specMedia">
-            <img id="specProduct" class="productImg productImg--spec" src="./assets/img/variant-black.webp" alt="G300 glasses product image" />
-            <div class="specSticker reveal">SPORT‑READY</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section buy" id="buy">
-      <div class="wrap buy__grid">
-        <div class="buy__copy reveal">
-          <h2 class="h2">DROP PRICE. MOVE FAST.</h2>
-          <p class="sub">Launch pricing includes free Canadian shipping.</p>
-
-          <div class="priceBig">
-            <span class="strike">$147.99</span>
-            <span class="now">$94.99 CAD</span>
-            <span class="save">SAVE $53</span>
-          </div>
-
-          <div class="buyMeta">
-            <div class="buyRow"><span>COLOR</span><strong id="buyColor">BLACKOUT</strong></div>
-            <div class="buyRow"><span>SIZE</span><strong id="buySize">SMALL</strong></div>
-          </div>
-
-          <div class="buyCtas">
-            <button class="btn btn--primary btn--lg" id="checkoutBtn">CHECKOUT</button>
-            <a class="btn btn--ghost btn--lg" href="#colors">CHANGE OPTIONS</a>
-          </div>
-
-          <div class="trustGrid">
-            <div class="trustCard">SECURE CHECKOUT (STRIPE READY)</div>
-            <div class="trustCard">FREE SHIPPING (CANADA)</div>
-            <div class="trustCard">30‑DAY RETURNS</div>
-            <div class="trustCard">SUPPORT EMAIL IN FOOTER</div>
-          </div>
-
-          <div class="micro">
-            Apple Pay / Google Pay supported in Stripe Checkout (when enabled in your Stripe settings).
-          </div>
-        </div>
-
-        <div class="buy__media">
-          
-          <div class="gallery">
-            <img class="galleryImg" src="./assets/img/variant-black.webp" alt="Blackout glasses" />
-            <img class="galleryImg" src="./assets/img/variant-blue.webp" alt="Electric Blue glasses" />
-            <img class="galleryImg" src="./assets/img/variant-orange.webp" alt="Orange Chaos glasses" />
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section diag" id="faq">
-      <div class="wrap">
-        <div class="sectionHead reveal">
-          <h2 class="h2">FAQ. QUICK.</h2>
-          <p class="sub">Straight answers.</p>
-        </div>
-
-        <div class="faq">
-          <details class="faqItem reveal">
-            <summary>Is it legal to wear?</summary>
-            <p>Follow local laws around recording and privacy. Use responsibly.</p>
+        <div class="accordion reveal">
+          <details>
+            <summary>Is shipping really free?</summary>
+            <p>Yes — free worldwide shipping is included. Delivery can take up to 20 days due to current restrictions.</p>
           </details>
-
-          <details class="faqItem reveal">
-            <summary>Does it work in Canada?</summary>
-            <p>Yes — we ship within Canada and support standard Bluetooth connectivity.</p>
-          </details>
-
-          <details class="faqItem reveal">
+          <details>
             <summary>What’s the return policy?</summary>
-            <p>30‑day returns. See Refund Policy in the footer.</p>
+            <p>Returns are accepted within 2 weeks of arrival. Item must be in original packaging, and the box must not be damaged.</p>
           </details>
-
-          <details class="faqItem reveal">
-            <summary>How long does shipping take?</summary>
-            <p>Typical delivery: 5–12 business days in Canada. Tracking is sent when shipped.</p>
+          <details>
+            <summary>How do I get support?</summary>
+            <p>Email <a href="mailto:support@razesmartglasses.com">support@razesmartglasses.com</a>.</p>
+          </details>
+          <details>
+            <summary>Does it work worldwide?</summary>
+            <p>Yes. Bluetooth audio/calls and app workflows are designed for worldwide use.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section class="section footerTop">
-      <div class="wrap footerTop__inner">
-        <div class="footerPitch">
-          <h2 class="h2">READY? GET LOUD.</h2>
-          <p class="sub">Pick a color. Pick a size. Hit checkout.</p>
+    <footer class="footer">
+      <div class="wrap footer__wrap">
+        <div class="footer__brand">
+          <img src="./assets/img/logo.png" alt="G300 RAZE" class="footer__logo">
+          <div class="footer__small">support@razesmartglasses.com</div>
         </div>
-        <a class="btn btn--primary btn--lg js-buy" href="#buy">BUY NOW</a>
+        <div class="footer__links">
+          <a href="./refund.html">Refund Policy</a>
+          <a href="./shipping.html">Shipping Policy</a>
+          <a href="./privacy.html">Privacy</a>
+          <a href="./terms.html">Terms</a>
+        </div>
       </div>
-    </section>
+    </footer>
   </main>
-
-  <footer class="footer">
-    <div class="wrap footer__grid">
-      <div>
-        <img class="footerLogo" src="./assets/img/logo.png" alt="G300 RAZE" />
-        <div class="footer__small">Support: <a href="mailto:support@yourstore.com">support@yourstore.com</a></div>
-      </div>
-      <div class="footer__links">
-        <a href="./refund.html">Refund Policy</a>
-        <a href="./shipping.html">Shipping Policy</a>
-        <a href="./privacy.html">Privacy</a>
-        <a href="./terms.html">Terms</a>
-      </div>
-      <div class="footer__small muted">© 2026 G300. All rights reserved.</div>
-    </div>
-  </footer>
 
   <script src="./app.js"></script>
 </body>
