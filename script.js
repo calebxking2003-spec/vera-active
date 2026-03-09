@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (discountForm) {
     discountForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Discount codes can be connected later during checkout.');
+      alert('Apply your coupon in Stripe checkout after clicking checkout.');
     });
   }
 });
