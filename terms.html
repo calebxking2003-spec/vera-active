@@ -1,57 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="coolbox_favicon.png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f6f6f7" />
-  <title>Terms & Conditions — G300 RAZE</title>
-  <link rel="icon" href="./favicon.ico" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Coolbox</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <a class="brand" href="./index.html" aria-label="G300 RAZE Home">
-      <img class="brandLogo" src="./assets/img/logo.png" alt="G300 RAZE" />
-    </a>
-    <div class="topbar__actions">
-      <a class="btn btn--primary" href="./index.html#buy" data-buy>Buy</a>
+  <header class="site-header" id="top">
+    <div class="container nav-shell">
+      <a class="logo" href="index.html">Coolbox</a>
+      <nav class="desktop-nav">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#specs">Specs</a>
+        <a href="cart.html" class="cart-pill">Cart <span id="navCartCount">0</span></a>
+      </nav>
+      <div class="nav-actions">
+        <div class="currency-wrap">
+          <select id="currencySelect" class="currency-select">
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+          </select>
+        </div>
+        <a class="button button-dark" href="index.html#purchase">Shop Now</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="section">
-  <div class="wrap">
-    <div class="kicker">POLICY</div>
-    <h1 class="h2">Terms & Conditions</h1>
-    <div class="heroCard" style="border-radius: var(--radius2);">
-      
-<p>By using this website and placing an order, you agree to these terms.</p>
-<p>Product photos are for presentation; minor variations may occur.</p>
-<p>Customer is responsible for complying with local laws regarding recording devices.</p>
-<p>We may cancel orders in cases of suspected fraud or misuse.</p>
+  <main class="policy-page">
+    <div class="container">
+      <div class="policy-shell">
+        <a class="policy-back" href="index.html">← Back to site</a>
+        
+<h1>Terms of Service</h1>
+<p>By using this website, you agree to these terms and the policies displayed on the site.</p>
+<h2>Product information</h2>
+<p>We aim to keep descriptions, pricing, and images accurate. Minor errors or updates may occasionally occur.</p>
+<h2>Use of product</h2>
+<p>Customers are responsible for determining whether the product is suitable for their own storage needs and use case.</p>
+<h2>Limitation of liability</h2>
+<p>Coolbox is not responsible for damages caused by misuse, neglect, or improper handling of the product.</p>
+<h2>Updates</h2>
+<p>We may update these terms and site content at any time without prior notice.</p>
 
+      </div>
     </div>
-  </div>
+  </main>
 
-<h3>Recording Disclaimer</h3>
-<p>Smart glasses may include recording capabilities. Laws regarding recording vary by region. Customers are responsible for complying with all applicable laws.</p>
-
-</main>
-
-<footer>
-  <div class="wrap footerGrid">
-    <div class="small">© 2026 G300 RAZE</div>
-    <nav class="footerLinks" aria-label="Footer">
-      <a href="./refund.html">Refund Policy</a>
-      <a href="./shipping.html">Shipping Policy</a>
-      <a href="./privacy.html">Privacy</a>
-      <a href="./terms.html">Terms</a>
-    </nav>
-    <div class="small" style="margin-top:10px;">support@razesmartglasses.com</div>
-  </div>
-</footer>
-
-<script src="./app.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo footer-logo">Coolbox</div>
+        <p>Premium mini cold storage for peptides, GLP-1 pens, vials, and wellness essentials.</p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="shipping.html">Shipping Policy</a>
+        <a href="returns.html">Returns Policy</a>
+        <a href="warranty.html">Warranty</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="contact.html">coolboxcoolers@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>

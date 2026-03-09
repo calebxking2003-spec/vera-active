@@ -1,245 +1,477 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>G300 RAZE — Smart Sports Glasses</title>
-  <meta name="description" content="G300 RAZE smart sports glasses with 8MP HD POV camera, Bluetooth audio, and magnetic charging. Free shipping worldwide.">
+<link rel="icon" type="image/png" href="coolbox_favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coolbox — Premium Cold Storage for Wellness Essentials</title>
+  <meta name="description" content="Coolbox is a premium mini fridge for peptides, vials, injectable pens, and precision wellness storage." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class=\"js\">
-  <header class="topbar">
-    <div class="wrap topbar__wrap">
-      <a class="brand" href="#top" aria-label="G300 RAZE home">
-        <img src="./assets/img/logo.png" alt="G300 RAZE" class="brand__logo">
-      </a>
+<body>
+  <div class="announcement">
+<span style="font-weight:600">🎁 Get 10% off — join our email list</span> <button id="openDiscountPopup" class="announcement-link" type="button">Claim offer</button>
+    <span>Precision storage for peptides, pens, vials, and wellness essentials. Join the Coolbox list and get 10% off your first order.</span>
+  </div>
 
-      <nav class="topnav" aria-label="Primary">
-        <a href="#highlights">Highlights</a>
+  <header class="site-header" id="top">
+    <div class="container nav-shell">
+      <a class="logo" href="#top">Coolbox</a>
+      <nav class="desktop-nav">
+        <a href="#features">Features</a>
         <a href="#gallery">Gallery</a>
         <a href="#specs">Specs</a>
+        <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
       </nav>
-
-      <div class="topbar__right">
-        <div class="currency" aria-label="Currency selector">
-          <button class="currency__btn" id="currencyBtn" type="button" aria-haspopup="listbox" aria-expanded="false">CAD</button>
-          <div class="currency__menu" id="currencyMenu" role="listbox" aria-label="Currency options">
-            <button role="option" data-cur="CAD">CAD</button>
-            <button role="option" data-cur="USD">USD</button>
-            <button role="option" data-cur="EUR">EUR</button>
-            <button role="option" data-cur="GBP">GBP</button>
-            <button role="option" data-cur="AUD">AUD</button>
-          </div>
+      <div class="nav-actions">
+        <a class="text-link" href="#details">Learn More</a>
+        <div class="currency-wrap">
+          <label for="currencySelect" class="sr-only">Currency</label>
+          <select id="currencySelect" class="currency-select">
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+          </select>
         </div>
-        <a class="topbar__cta" href="#buy">Buy</a>
+        <a class="text-link cart-pill" href="cart.html">Cart <span id="navCartCount">0</span></a>
+        <a class="button button-dark" href="#purchase">Shop Now</a>
       </div>
+      <button class="mobile-toggle" aria-label="Open menu">☰</button>
+    </div>
+    <div class="mobile-menu">
+      <a href="#features">Features</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#specs">Specs</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <div class="mobile-tools">
+      <select id="currencySelectMobile" class="currency-select">
+        <option value="USD">USD</option>
+        <option value="CAD">CAD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="AUD">AUD</option>
+      </select>
+      <a class="text-link cart-pill mobile-cart" href="cart.html">Cart <span id="navCartCountMobile">0</span></a>
+      <a class="button button-dark mobile-buy" href="#purchase">Shop Now</a>
+    </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap hero__wrap">
-        <div class="hero__left reveal">
-          <div class="kicker">SMART SPORTS GLASSES</div>
-          <h1 class="h1">G300 RAZE</h1>
-          <p class="lead">Clean POV capture, calls, and audio—built into a frame you’ll actually wear.</p>
-
-          <div class="price">
-            <div class="price__now" id="priceNow">CA$149.99</div>
-            <div class="price__was" id="priceWas">CA$219.99</div>
-            <div class="pill">FREE SHIPPING INCLUDED</div>
+  <main>
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Premium Medical Wellness Storage</div>
+          <h1>Cold storage, redesigned for a cleaner health setup.</h1>
+          <p class="hero-text">
+            Coolbox brings order, privacy, and precision to the products you actually care about storing well.
+            Compact enough for a desk or nightstand, refined enough to leave out in the open.
+          </p>
+          <p class="hero-discount">Join the Coolbox list and get 10% off your first order.</p>
+          <div class="hero-cta">
+            <a class="button button-dark" href="#purchase">Buy Coolbox</a>
+            <a class="button button-light" href="#details">See Product Details</a>
           </div>
-
-          <div class="swatches" aria-label="Choose color">
-            <button class="swatch is-active" type="button" data-variant="black" aria-pressed="true">
-              <span class="dot dot--black"></span><span></span>
-            </button>
-            <button class="swatch" type="button" data-variant="blue" aria-pressed="false">
-              <span class="dot dot--blue"></span><span></span>
-            </button>
-            <button class="swatch" type="button" data-variant="orange" aria-pressed="false">
-              <span class="dot dot--orange"></span><span></span>
-            </button>
-          </div>
-
-          <div class="selection">
-            <span class="selection__label">Selected</span>
-            <span class="selection__value" id="buyColor"></span>
-          </div>
-
-          <div class="ctaRow">
-            <button class="btn btn--primary" id="checkoutBtn" type="button">Buy now</button>
-            <a class="btn btn--secondary" href="#highlights">Learn more</a>
-          </div>
-
-          <div class="fineprint">
-            Worldwide shipping. Delivery can take up to 20 days due to current restrictions. Returns within 2 weeks of arrival.
-            <a href="mailto:support@razesmartglasses.com">support@razesmartglasses.com</a>
-          </div>
-        </div>
-
-        <div class="hero__right reveal" id="gallery">
-          <div class="galleryCard">
-            <div class="galleryMain">
-              <img id="galleryMain" src="./assets/img/g300-black1.webp" alt="G300 RAZE product image">
+          <div class="hero-stats">
+            <div class="stat-card">
+              <strong>28 × 23 × 18 cm</strong>
+              <span>Compact footprint</span>
             </div>
-            <div class="galleryThumbs" aria-label="Angle selector">
-              <button class="gThumb is-active" type="button" data-angle="0" aria-label="Angle 1">
-                <img src="./assets/img/g300-black1.webp" alt="">
-              </button>
-              <button class="gThumb" type="button" data-angle="1" aria-label="Angle 2">
-                <img src="./assets/img/g300-black2.webp" alt="">
-              </button>
-              <button class="gThumb" type="button" data-angle="2" aria-label="Angle 3">
-                <img src="./assets/img/g300-black3.webp" alt="">
-              </button>
+            <div class="stat-card">
+              <strong>USB + battery</strong>
+              <span>Flexible power</span>
             </div>
-            <div class="galleryMeta">
-              <span class="metaLabel">View</span>
-              </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker__track">
-          <span>FREE SHIPPING</span><span>•</span><span>8MP HD POV CAMERA</span><span>•</span><span>BLUETOOTH AUDIO + CALLS</span><span>•</span><span>MAGNETIC CHARGING</span><span>•</span><span>FREE SHIPPING</span><span>•</span><span>8MP HD POV CAMERA</span><span>•</span><span>BLUETOOTH AUDIO + CALLS</span><span>•</span><span>MAGNETIC CHARGING</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="highlights">
-      <div class="wrap">
-        <div class="sectionHead reveal">
-          <h2 class="h2">Highlights</h2>
-          <p class="sub">The essentials—clearly explained. Built for conversion, not confusion.</p>
-        </div>
-
-        <div class="grid3 reveal">
-          <div class="card">
-            <div class="card__k">Camera</div>
-            <div class="card__t">8MP HD POV capture</div>
-            <div class="card__p">Record what you’re doing without pulling out your phone.</div>
-          </div>
-          <div class="card">
-            <div class="card__k">Audio</div>
-            <div class="card__t">Bluetooth calls + music</div>
-            <div class="card__p">Mic + speaker support for daily wear and training.</div>
-          </div>
-          <div class="card">
-            <div class="card__k">Charging</div>
-            <div class="card__t">Magnetic snap-on</div>
-            <div class="card__p">Fast routine: snap, charge, go again.</div>
-          </div>
-        </div>
-
-        <div class="how reveal">
-          <div class="how__left">
-            <h3 class="h3">How it works</h3>
-            <ol class="steps">
-              <li><b>Power on</b><span>Hold the main button until you hear the ready tone.</span></li>
-              <li><b>Pair</b><span>Connect by Bluetooth for audio and calls. Use the app to manage clips.</span></li>
-              <li><b>Record</b><span>Tap to start/stop recording. Quick tap for photos.</span></li>
-              <li><b>Review</b><span>View and export in the companion app. Keep storage clean.</span></li>
-              <li><b>Charge</b><span>Snap on the magnetic cable and top up.</span></li>
-            </ol>
-          </div>
-          <div class="how__right">
-            <div class="panel">
-              <div class="panel__title">Included</div>
-              <div class="chips">
-                <span>Glasses</span><span>Magnetic cable</span><span>Case</span><span>Quick start</span>
-              </div>
-              <div class="panel__note">Support: <a href="mailto:support@razesmartglasses.com">support@razesmartglasses.com</a></div>
+            <div class="stat-card">
+              <strong>Digital display</strong>
+              <span>At-a-glance control</span>
             </div>
-
-            <div class="panel panel--muted">
-              <div class="panel__title">Shipping + returns</div>
-              <div class="panel__note">Free shipping worldwide. Delivery can take up to 20 days due to current restrictions. Returns within 2 weeks after arrival (original box required).</div>
-            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="hero-device-shell">
+            <img src="assets/product-1.png" alt="Coolbox product front view" class="hero-main-image" />
+          </div>
+          <div class="floating-card floating-left">
+            <span>Quiet. Minimal. Portable.</span>
+          </div>
+          <div class="floating-card floating-right">
+            <span>Designed for peptides, vials, and pens.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="specs">
-      <div class="wrap">
-        <div class="sectionHead reveal">
-          <h2 class="h2">Specs</h2>
-          <p class="sub">Simple list. No fluff.</p>
+    <section class="section problem" id="details">
+      <div class="container section-head reveal">
+        <div class="eyebrow">Purpose-Built Storage</div>
+        <h2>Built specifically for medicine and wellness essentials.</h2>
+        <p>
+          Coolbox is not trying to replace a household fridge. It is a dedicated mini storage unit for peptides,
+          GLP-1 pens, vials, and other small wellness products that deserve a cleaner, more intentional place of their own.
+        </p>
+      </div>
+      <div class="container purpose-grid">
+        <div class="purpose-card reveal">
+          <h3>What it is made for</h3>
+          <ul class="clean-list">
+            <li>Peptides and reconstitution supplies</li>
+            <li>GLP-1 pens and small injectable wellness items</li>
+            <li>Vials, compact kits, and protocol essentials</li>
+            <li>Private bedside, office, or countertop storage</li>
+          </ul>
         </div>
-
-        <div class="specGrid reveal">
-          <div class="specRow"><span>Camera</span><span>8MP HD</span></div>
-          <div class="specRow"><span>Audio</span><span>Bluetooth speaker + mic</span></div>
-          <div class="specRow"><span>Charging</span><span>Magnetic</span></div>
-          <div class="specRow"><span>App</span><span>Companion app controls</span></div>
-          <div class="specRow"><span>Use</span><span>Hands-free sport capture</span></div>
+        <div class="purpose-card reveal">
+          <h3>Why people want it</h3>
+          <ul class="clean-list">
+            <li>Cleaner organization for everyday use</li>
+            <li>More discreet than leaving products in shared spaces</li>
+            <li>A dedicated setup that feels premium and intentional</li>
+            <li>Portable format for home, office, travel, or car use</li>
+          </ul>
         </div>
+      </div>
+    </section>
 
-        <div class="divider"></div>
+    <section class="section features" id="features">
+      <div class="container section-head reveal">
+        <div class="eyebrow">Key Features</div>
+        <h2>Clean function, not clutter.</h2>
+      </div>
+      <div class="container features-grid">
+        <article class="feature-card reveal">
+          <div class="icon">✦</div>
+          <h3>Digital temperature display</h3>
+          <p>Simple, visible controls make the unit feel modern and easy to manage day to day.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon">◻</div>
+          <h3>Portable compact design</h3>
+          <p>Made for desks, counters, bedside setups, office spaces, and on-the-go use.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon">◎</div>
+          <h3>Magnetic lid closure</h3>
+          <p>A cleaner open-and-close experience with a secure feel and tidy finish.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon">▣</div>
+          <h3>Dedicated single chamber</h3>
+          <p>One purposeful compartment for focused storage without mixing products into everyday kitchen space.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon">↟</div>
+          <h3>USB + battery power</h3>
+          <p>Flexible powering options make it easier to place the unit where it best fits your routine.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="icon">❍</div>
+          <h3>Minimal premium build</h3>
+          <p>ABS construction, smooth lines, and a clean white finish designed to look intentional in any room.</p>
+        </article>
+      </div>
+    </section>
 
-        <div class="buyStrip reveal" id="buy">
-          <div class="buyStrip__left">
-            <div class="buyStrip__title">Ready?</div>
-            <div class="buyStrip__sub">Free shipping included. Limited launch pricing.</div>
+    
+<section class="section gallery" id="gallery">
+  <div class="container section-head reveal">
+    <div class="eyebrow">Product Gallery</div>
+    <h2>See the product clearly, from every angle.</h2>
+    <p>
+      A cleaner gallery layout with full product visibility, balanced spacing, and a focused presentation.
+    </p>
+  </div>
+  <div class="container gallery-showcase reveal">
+    <div class="gallery-stage">
+      <img id="galleryMainImage" src="assets/product-1.png" alt="Coolbox product view" />
+    </div>
+    <div class="gallery-thumbs">
+      <button class="gallery-thumb active" data-gallery-image="assets/product-1.png">
+        <img src="assets/product-1.png" alt="Coolbox front angle" />
+      </button>
+      <button class="gallery-thumb" data-gallery-image="assets/product-2.png">
+        <img src="assets/product-2.png" alt="Coolbox side angle" />
+      </button>
+      <button class="gallery-thumb" data-gallery-image="assets/product-3.png">
+        <img src="assets/product-3.png" alt="Coolbox open interior" />
+      </button>
+      <button class="gallery-thumb" data-gallery-image="assets/product-4.png">
+        <img src="assets/product-4.png" alt="Coolbox front display" />
+      </button>
+    </div>
+  </div>
+</section>
+
+
+    <section class="section how-it-works">
+      <div class="container section-head reveal">
+        <div class="eyebrow">How It Works</div>
+        <h2>Set it down. Stock it properly. Keep everything together.</h2>
+      </div>
+      <div class="container steps-grid">
+        <article class="step-card reveal">
+          <span class="step-number">01</span>
+          <h3>Place your essentials inside</h3>
+          <p>Store peptides, vials, pens, and other wellness items in one dedicated space.</p>
+        </article>
+        <article class="step-card reveal">
+          <span class="step-number">02</span>
+          <h3>Monitor with the digital display</h3>
+          <p>Check the interface quickly and keep the storage setup feeling controlled and intentional.</p>
+        </article>
+        <article class="step-card reveal">
+          <span class="step-number">03</span>
+          <h3>Access your protocol cleanly</h3>
+          <p>No more digging through a family fridge just to get to the things you use consistently.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section lifestyle">
+      <div class="container lifestyle-grid">
+        <div class="lifestyle-panel reveal">
+          <div class="eyebrow">Fits Modern Spaces</div>
+          <h2>Built for routines that value precision and presentation.</h2>
+          <p>
+            Coolbox is small enough for a bedroom shelf, bathroom counter, office station, wellness room, or travel setup. The goal is simple: better storage without visual noise.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Bedroom</span>
+            <span class="pill">Bathroom Counter</span>
+            <span class="pill">Office</span>
+            <span class="pill">Travel</span>
+            <span class="pill">Wellness Room</span>
           </div>
-          <div class="buyStrip__right">
-            <div class="buyStrip__price"><span id="priceNow2">CA$149.99</span><small id="priceWas2">CA$219.99</small></div>
-            <button class="btn btn--primary" data-checkout type="button">Buy now</button>
+        </div>
+        <div class="lifestyle-quote reveal">
+          <p>
+            “It feels more like a purpose-built wellness product than a generic portable cooler. That difference matters when it lives in your space every day.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section specs" id="specs">
+      <div class="container section-head reveal">
+        <div class="eyebrow">Specifications</div>
+        <h2>Compact footprint. Clean utility.</h2>
+      </div>
+      <div class="container specs-grid">
+        <article class="spec-card reveal"><span>Material</span><strong>ABS plastic</strong></article>
+        <article class="spec-card reveal"><span>Power source</span><strong>USB charging + batteries</strong></article>
+        <article class="spec-card reveal"><span>Closure</span><strong>Magnetic lid</strong></article>
+        <article class="spec-card reveal"><span>Compartments</span><strong>1 chamber</strong></article>
+        <article class="spec-card reveal"><span>Size</span><strong>28 × 23 × 18 cm</strong></article>
+        <article class="spec-card reveal"><span>Weight</span><strong>1.8 kg gross</strong></article>
+        <article class="spec-card reveal"><span>Use cases</span><strong>Home, office, travel, car</strong></article>
+        <article class="spec-card reveal"><span>Display</span><strong>Digital temperature display</strong></article>
+        <article class="spec-card reveal"><span>Form</span><strong>Portable rectangle with lid</strong></article>
+        <article class="spec-card reveal"><span>Style</span><strong>Classic minimal</strong></article>
+        <article class="spec-card reveal"><span>Classification</span><strong>Mini medical kit</strong></article>
+        <article class="spec-card reveal"><span>Origin</span><strong>China</strong></article>
+      </div>
+    </section>
+
+    <section class="section purchase" id="purchase">
+      <div class="container purchase-grid">
+        <div class="purchase-media reveal">
+          <div class="purchase-image-wrap">
+            <img id="activeProductImage" src="assets/product-1.png" alt="Coolbox selected product image" />
+          </div>
+          <div class="thumb-row">
+            <button class="thumb active" data-image="assets/product-1.png"><img src="assets/product-1.png" alt=""></button>
+            <button class="thumb" data-image="assets/product-2.png"><img src="assets/product-2.png" alt=""></button>
+            <button class="thumb" data-image="assets/product-3.png"><img src="assets/product-3.png" alt=""></button>
+            <button class="thumb" data-image="assets/product-4.png"><img src="assets/product-4.png" alt=""></button>
+          </div>
+        </div>
+        <div class="purchase-panel reveal">
+          <div class="eyebrow">Purchase</div>
+          <h2>Coolbox Mini</h2>
+          <div class="price-row">
+            <p class="price" data-base-price="139.99">$139.99 <span data-base-compare="209.99">$209.99</span></p>
+            <div class="save-badge">Save $70</div>
+          </div>
+          <p class="purchase-copy">
+            A dedicated mini cooling unit for peptides, GLP-1 pens, vials, and compact wellness essentials that deserve a cleaner, more intentional setup.
+          </p>
+          <div class="benefit-list">
+            <div>Free worldwide shipping</div>
+            <div>15–30 business day delivery worldwide</div>
+            <div>30-day returns</div>
+            <div>1-year limited warranty</div>
+          </div>
+          <div class="stock-line">In stock and ready to order</div>
+          <div class="purchase-controls">
+            <div class="qty-control">
+              <button id="decreaseQty" aria-label="Decrease quantity">−</button>
+              <span id="qtyValue">1</span>
+              <button id="increaseQty" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="button button-dark add-to-cart" id="addToCart">Add to Cart</button>
+            <a class="button button-light" href="cart.html">View Cart</a>
+          </div>
+          <label class="subscribe-row">
+            <input type="checkbox" id="subscribeSave">
+            <span>Subscribe for updates, restocks, and future accessory offers</span>
+          </label>
+          <div class="cart-note" id="cartNote">Cart ready.</div>
+          <a class="button button-dark buy-now-direct" href="https://buy.stripe.com/00waEYdsOb0A8UQaUzbjW03" target="_blank" rel="noopener">Buy now with secure checkout</a><div class="payment-row">
+            <span>Visa</span>
+            <span>Mastercard</span>
+            <span>PayPal</span>
+            <span>Apple Pay</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="faq">
-      <div class="wrap">
-        <div class="sectionHead reveal">
-          <h2 class="h2">FAQ</h2>
-          <p class="sub">Clear answers.</p>
+    <section class="section reviews" id="reviews">
+      <div class="container section-head reveal">
+        <div class="eyebrow">Social Proof</div>
+        <h2>What people like about it.</h2>
+      </div>
+      <div class="container review-slider reveal">
+        <button class="slider-arrow" id="prevReview" aria-label="Previous review">←</button>
+        <div class="review-card" id="reviewCard">
+          <p class="review-text">“I wanted something separate from the kitchen that looked clean on a shelf. This actually feels made for the job.”</p>
+          <div class="review-meta">
+            <strong>Marcus T.</strong>
+            <span>Peptide user</span>
+          </div>
         </div>
-
-        <div class="accordion reveal">
-          <details>
-            <summary>Is shipping really free?</summary>
-            <p>Yes — free worldwide shipping is included. Delivery can take up to 20 days due to current restrictions.</p>
-          </details>
-          <details>
-            <summary>What’s the return policy?</summary>
-            <p>Returns are accepted within 2 weeks of arrival. Item must be in original packaging, and the box must not be damaged.</p>
-          </details>
-          <details>
-            <summary>How do I get support?</summary>
-            <p>Email <a href="mailto:support@razesmartglasses.com">support@razesmartglasses.com</a>.</p>
-          </details>
-          <details>
-            <summary>Does it work worldwide?</summary>
-            <p>Yes. Bluetooth audio/calls and app workflows are designed for worldwide use.</p>
-          </details>
-        </div>
+        <button class="slider-arrow" id="nextReview" aria-label="Next review">→</button>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="wrap footer__wrap">
-        <div class="footer__brand">
-          <img src="./assets/img/logo.png" alt="G300 RAZE" class="footer__logo">
-          <div class="footer__small">support@razesmartglasses.com</div>
-        </div>
-        <div class="footer__links">
-          <a href="./refund.html">Refund Policy</a>
-          <a href="./shipping.html">Shipping Policy</a>
-          <a href="./privacy.html">Privacy</a>
-          <a href="./terms.html">Terms</a>
-        </div>
+    <section class="section comparison">
+      <div class="container section-head reveal">
+        <div class="eyebrow">Use Cases</div>
+        <h2>A cleaner home for the products you use regularly.</h2>
+        <p>
+          Coolbox works best as a dedicated storage space for small medical and wellness essentials in places where a full-size fridge makes no sense.
+        </p>
       </div>
-    </footer>
+      <div class="container usecase-grid">
+        <article class="usecase-card reveal">
+          <h3>Bedside or bedroom setup</h3>
+          <p>Keep your protocol nearby without putting personal products in a shared kitchen environment.</p>
+        </article>
+        <article class="usecase-card reveal">
+          <h3>Office or private workspace</h3>
+          <p>A compact footprint makes it easier to store wellness essentials in a more controlled, discreet way.</p>
+        </article>
+        <article class="usecase-card reveal">
+          <h3>Travel or car support</h3>
+          <p>USB and battery power make it more flexible when you want portable storage on the go.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section email-capture">
+      <div class="container email-shell reveal">
+        <div>
+          <div class="eyebrow">Stay Updated</div>
+          <h2>Get launch offers and restock updates.</h2>
+        </div>
+        <form class="email-form" id="emailForm">
+          <input type="email" id="emailInput" placeholder="Email address" required />
+          <button class="button button-dark" type="submit">Join</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container section-head reveal">
+        <div class="eyebrow">FAQ</div>
+        <h2>Everything you would want to know first.</h2>
+      </div>
+      <div class="container faq-list">
+        <details class="faq-item reveal" open>
+          <summary>What can I store in Coolbox?</summary>
+          <p>It is built for storing peptides, vials, pens, and other small wellness essentials that benefit from a dedicated compact storage setup.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Is it quiet?</summary>
+          <p>It is designed for portable tabletop use and made to fit comfortably into home and office environments.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Does it maintain a consistent temperature?</summary>
+          <p>It includes a digital temperature display so the experience feels more controlled and visible during daily use.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Is it portable?</summary>
+          <p>Yes. The compact size, USB charging support, and lightweight build make it easy to place or move around.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>How much does it hold?</summary>
+          <p>The single-chamber interior is optimized for smaller wellness products rather than bulk storage.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Is it discreet enough for bedside or office use?</summary>
+          <p>Yes. That is one of the main advantages. It is made to look tidy and intentional outside the kitchen.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="container final-shell reveal">
+        <div class="eyebrow">Upgrade Your Setup</div>
+        <h2>Bring cleaner storage to your protocol.</h2>
+        <p>Dedicated cold storage, better presentation, and a more premium daily routine.</p>
+        <a class="button button-dark" href="#purchase">Order Coolbox</a>
+      </div>
+    </section>
   </main>
 
-  <script src="./app.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo footer-logo">Coolbox</div>
+        <p>Premium mini cold storage for peptides, GLP-1 pens, vials, and wellness essentials.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#purchase">Buy Now</a>
+        <a href="#specs">Specifications</a>
+        <a href="cart.html">Cart</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="#faq">FAQ</a>
+        <a href="shipping.html">Shipping Policy</a>
+        <a href="returns.html">Returns Policy</a>
+        <a href="warranty.html">Warranty</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="popup-backdrop" id="popupBackdrop">
+    <div class="popup">
+      <button class="popup-close" id="closePopup" aria-label="Close">×</button>
+      <div class="eyebrow">Welcome to Coolbox</div>
+      <h3>Get 10% off your first order.</h3>
+      <p>Join the list for early offers, restocks, and product updates.</p>
+      <form class="popup-form" id="popupForm">
+        <input type="email" placeholder="Email address" required />
+        <button class="button button-dark" type="submit">Unlock Offer</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

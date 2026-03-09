@@ -1,142 +1,99 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Cart • THE DOG FACE™</title>
-<link rel="stylesheet" href="css/style.css"/>
-</head><body>
-<div class="container">
-<header>
-<strong>THE DOG FACE™</strong>
-<nav>
-<a href="index.html#product">Shop</a>
-<a href="why.html">Why</a>
-<a href="size.html">Size</a>
-<a href="cart.html">Cart</a>
-</nav>
-</header>
-
-<main class="page">
-<h1 class="pageTitle">Cart</h1>
-<p class="pageSub">Ready when you are.</p>
-
-<div class="cartRow">
-  <div class="cartList" id="cartList"></div>
-
-  <div class="cartSummary">
-<div class="cartConfidence">Pre‑order item • Ships in 2–3 weeks • 15‑day refunds after delivery • Secure Stripe checkout</div>
-    <div class="sumLine"><span>Subtotal</span><span id="subVal">$0.00</span></div>
-    <div class="sumLine"><span>Shipping</span><span>Calculated at checkout</span></div>
-    <div class="sumLine" id="leashCartLine" style="display:none"><span>Matching leash</span><span>$9.99</span></div>
-    <div class="sumTotal"><span>Total</span><span id="cartTotal">$0.00</span></div>
-    <button class="btn" id="checkoutBtn" type="button">Continue</button>
-    <div class="microNote" style="margin-top:10px">Pre-order. We’ll email you when it ships.</div>
-  </div>
-</div>
-</main>
-</div>
-
-<!-- Upsell modal -->
-<div class="modalOverlay" id="upsellOverlay" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="upsellTitle">
-    <div class="modalTop">
-      <h3 id="upsellTitle">Complete the fit?</h3>
-      <button class="modalClose" id="upsellClose" aria-label="Close">×</button>
-    </div>
-    <p class="modalCopy">Add the matching leash before checkout.</p>
-
-    <div class="upsellRow">
-      <div class="leashPh"></div>
-      <div class="upsellMeta">
-        <div class="upsellName">Matching Leash</div>
-        <div class="upsellSmall">Clean. Durable. Everyday.</div>
-      </div>
-      <div class="upsellPrice">+$9.99</div>
-    </div>
-
-    <div class="modalActions">
-      <button class="btn" id="addLeashBtn" type="button">Add leash</button>
-      <button class="btn secondary" id="noThanksBtn" type="button">No thanks</button>
-    </div>
-
-    <div class="modalFine">You can remove it any time in cart.</div>
-  </div>
-</div>
-
-<script src="js/main.js"></script>
-
-
-<script src="js/main.js"></script>
-<script>
-  const {loadCart, removeItem, setQty, cartTotals, MONEY} = window.DogfaceCart || {};
-  const list = document.getElementById("cartList");
-  const subEl = document.getElementById("subVal");
-  const totEl = document.getElementById("cartTotal");
-  const leash = sessionStorage.getItem("thedogface_leash_added")==="1";
-  const leashLine = document.getElementById("leashCartLine");
-
-  function row(item){
-    return `
-      <div class="cartItem">
-        <div class="cartThumb"><img alt="${item.name}" src="${item.img}"></div>
-        <div class="cartMeta">
-          <div class="cartName">${item.name}</div>
-          <div class="cartSmall">Color: ${item.color} · Size: ${item.size}</div>
-          <div class="qtyRow">
-            <button class="qtyBtn" data-sku="${item.sku}" data-act="dec" type="button">–</button>
-            <div class="qtyVal">${item.qty}</div>
-            <button class="qtyBtn" data-sku="${item.sku}" data-act="inc" type="button">+</button>
-            <button class="removeBtn" data-sku="${item.sku}" type="button">Remove</button>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="coolbox_favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart — Coolbox</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-shell">
+      <a class="logo" href="index.html">Coolbox</a>
+      <nav class="desktop-nav">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#specs">Specs</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="currency-wrap">
+          <select id="currencySelect" class="currency-select">
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+          </select>
         </div>
-        <div class="cartPrice">${MONEY(item.price * item.qty)}</div>
+        <a class="text-link cart-pill" href="cart.html">Cart <span id="navCartCount">0</span></a>
+        <a class="button button-dark" href="index.html#purchase">Shop Now</a>
       </div>
-    `;
-  }
+    </div>
+  </header>
 
-  function render(){
-    const items = loadCart ? loadCart() : [];
-    if(!items.length){
-      list.innerHTML = `<div class="emptyCart">
-        <div class="cartName">Your cart is empty.</div>
-        <div class="cartSmall">Pick a color and size, then pre-order.</div>
-        <a class="btn" href="index.html#product" style="margin-top:12px;display:inline-block">Shop</a>
-      </div>`;
-    }else{
-      list.innerHTML = items.map(row).join("");
-    }
+  <main class="policy-page">
+    <div class="container section-head">
+      <div class="eyebrow">Cart</div>
+      <h2>Your order</h2>
+      <p>Review your items, change quantity, and continue to checkout when you're ready.</p>
+    </div>
+    <div class="container cart-page-grid">
+      <section class="cart-list">
+        <div id="cartList"></div>
+      </section>
+      <aside class="order-summary">
+        <h3>Order summary</h3>
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <strong id="summarySubtotal">$0.00</strong>
+        </div>
+        <div class="summary-line">
+          <span>Shipping</span>
+          <strong>Free</strong>
+        </div>
+        <div class="summary-line">
+          <span>Delivery estimate</span>
+          <strong>15–30 business days</strong>
+        </div>
+        <form class="discount-row" id="discountForm">
+          <input type="text" placeholder="Discount code" />
+          <button class="button button-light" type="submit">Apply</button>
+        </form>
+        <div class="summary-line total">
+          <span>Total</span>
+          <strong id="summaryTotal">$0.00</strong>
+        </div>
+        <a class="button button-dark" id="checkoutBtn" href="https://buy.stripe.com/00waEYdsOb0A8UQaUzbjW03" target="_blank" rel="noopener" style="width:100%;margin-top:18px;">Checkout securely</a>
+        <p class="cart-muted" style="margin-top:14px;">Contact: coolboxcoolers@gmail.com</p>
+      </aside>
+    </div>
+  </main>
 
-    const totals = cartTotals ? cartTotals(items) : {subtotal:0,total:0};
-    let total = totals.total;
-    if(subEl) subEl.textContent = MONEY(totals.subtotal);
-    if(leash){
-      if(leashLine) leashLine.style.display="";
-      total += 9.99;
-    }else{
-      if(leashLine) leashLine.style.display="none";
-    }
-    if(totEl) totEl.textContent = MONEY(total);
-  }
-
-  document.addEventListener("click",(e)=>{
-    const qb = e.target.closest(".qtyBtn");
-    if(qb){
-      const sku = qb.dataset.sku;
-      const act = qb.dataset.act;
-      const items = loadCart();
-      const it = items.find(i=>i.sku===sku);
-      if(!it) return;
-      const next = act==="inc" ? it.qty+1 : it.qty-1;
-      setQty(sku, next);
-      render();
-      return;
-    }
-    const rb = e.target.closest(".removeBtn");
-    if(rb){
-      removeItem(rb.dataset.sku);
-      render();
-    }
-  });
-
-  render();
-</script>
-</body></html>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo footer-logo">Coolbox</div>
+        <p>Premium mini cold storage for peptides, GLP-1 pens, vials, and wellness essentials.</p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="shipping.html">Shipping Policy</a>
+        <a href="returns.html">Returns Policy</a>
+        <a href="warranty.html">Warranty</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="contact.html">coolboxcoolers@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

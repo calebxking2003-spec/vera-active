@@ -1,56 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="coolbox_favicon.png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f6f6f7" />
-  <title>Privacy Policy — G300 RAZE</title>
-  <link rel="icon" href="./favicon.ico" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Coolbox</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <a class="brand" href="./index.html" aria-label="G300 RAZE Home">
-      <img class="brandLogo" src="./assets/img/logo.png" alt="G300 RAZE" />
-    </a>
-    <div class="topbar__actions">
-      <a class="btn btn--primary" href="./index.html#buy" data-buy>Buy</a>
+  <header class="site-header" id="top">
+    <div class="container nav-shell">
+      <a class="logo" href="index.html">Coolbox</a>
+      <nav class="desktop-nav">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#specs">Specs</a>
+        <a href="cart.html" class="cart-pill">Cart <span id="navCartCount">0</span></a>
+      </nav>
+      <div class="nav-actions">
+        <div class="currency-wrap">
+          <select id="currencySelect" class="currency-select">
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+          </select>
+        </div>
+        <a class="button button-dark" href="index.html#purchase">Shop Now</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="section">
-  <div class="wrap">
-    <div class="kicker">POLICY</div>
-    <h1 class="h2">Privacy Policy</h1>
-    <div class="heroCard" style="border-radius: var(--radius2);">
-      
-<p>We collect only what’s needed to process your order and provide support (name, email, shipping details).</p>
-<p>Payments are handled securely by third-party payment providers. We do not store card details on our servers.</p>
-<p>We do not sell your personal information.</p>
+  <main class="policy-page">
+    <div class="container">
+      <div class="policy-shell">
+        <a class="policy-back" href="index.html">← Back to site</a>
+        
+<h1>Privacy Policy</h1>
+<p>We respect your privacy and collect only the information needed to process orders, ship products, send order updates, and improve our services.</p>
+<h2>Information we may collect</h2>
+<ul>
+  <li>Name</li>
+  <li>Shipping address</li>
+  <li>Email address</li>
+  <li>Payment details through payment processors</li>
+</ul>
+<h2>How information is used</h2>
+<ul>
+  <li>To process and fulfill orders</li>
+  <li>To provide support and shipping updates</li>
+  <li>To improve the website and customer experience</li>
+</ul>
+<p>We do not sell personal information to third parties.</p>
 
+      </div>
     </div>
-  </div>
+  </main>
 
-<h3>Privacy</h3>
-<p>We respect your privacy and only collect information required to process orders and provide support.</p>
-
-</main>
-
-<footer>
-  <div class="wrap footerGrid">
-    <div class="small">© 2026 G300 RAZE</div>
-    <nav class="footerLinks" aria-label="Footer">
-      <a href="./refund.html">Refund Policy</a>
-      <a href="./shipping.html">Shipping Policy</a>
-      <a href="./privacy.html">Privacy</a>
-      <a href="./terms.html">Terms</a>
-    </nav>
-    <div class="small" style="margin-top:10px;">support@razesmartglasses.com</div>
-  </div>
-</footer>
-
-<script src="./app.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo footer-logo">Coolbox</div>
+        <p>Premium mini cold storage for peptides, GLP-1 pens, vials, and wellness essentials.</p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="shipping.html">Shipping Policy</a>
+        <a href="returns.html">Returns Policy</a>
+        <a href="warranty.html">Warranty</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="contact.html">coolboxcoolers@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>

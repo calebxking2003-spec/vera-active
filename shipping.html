@@ -1,57 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="coolbox_favicon.png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f6f6f7" />
-  <title>Shipping Policy — G300 RAZE</title>
-  <link rel="icon" href="./favicon.ico" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shipping Policy — Coolbox</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <a class="brand" href="./index.html" aria-label="G300 RAZE Home">
-      <img class="brandLogo" src="./assets/img/logo.png" alt="G300 RAZE" />
-    </a>
-    <div class="topbar__actions">
-      <a class="btn btn--primary" href="./index.html#buy" data-buy>Buy</a>
+  <header class="site-header" id="top">
+    <div class="container nav-shell">
+      <a class="logo" href="index.html">Coolbox</a>
+      <nav class="desktop-nav">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#specs">Specs</a>
+        <a href="cart.html" class="cart-pill">Cart <span id="navCartCount">0</span></a>
+      </nav>
+      <div class="nav-actions">
+        <div class="currency-wrap">
+          <select id="currencySelect" class="currency-select">
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+          </select>
+        </div>
+        <a class="button button-dark" href="index.html#purchase">Shop Now</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="section">
-  <div class="wrap">
-    <div class="kicker">POLICY</div>
-    <h1 class="h2">Shipping Policy</h1>
-    <div class="heroCard" style="border-radius: var(--radius2);">
-      
-<p><strong>Worldwide shipping</strong> is available.</p>
-<p><strong>Estimated delivery:</strong> Most orders arrive within <strong>7–20 days</strong> depending on region and carrier routing. Due to current global logistics and carrier restrictions, some deliveries may take longer.</p>
-<p>Tracking details are provided when available once your order ships.</p>
-<p>Please double-check your address at checkout. Delays caused by incomplete or incorrect addresses are not covered.</p>
+  <main class="policy-page">
+    <div class="container">
+      <div class="policy-shell">
+        <a class="policy-back" href="index.html">← Back to site</a>
+        
+<h1>Shipping Policy</h1>
+<p>All Coolbox orders are processed within 1–3 business days after payment is received.</p>
+<h2>Shipping times</h2>
+<p>Coolbox ships worldwide. Estimated delivery is 15–30 business days depending on destination, customs processing, holidays, and courier movement.</p>
+<h2>Order tracking</h2>
+<p>Once your order ships, you will receive tracking information by email so you can follow your package.</p>
+<h2>Incorrect shipping details</h2>
+<p>Customers are responsible for entering the correct shipping address at checkout. If you made a mistake, contact us as soon as possible.</p>
+<h2>Delayed or lost packages</h2>
+<p>If your order appears delayed or lost, contact support and we will help you work through the issue with the shipping carrier.</p>
 
+      </div>
     </div>
-  </div>
+  </main>
 
-<h3>Shipping</h3>
-<p>We ship worldwide using tracked shipping services. Delivery typically takes 7–20 days depending on destination and local processing times.</p>
-
-</main>
-
-<footer>
-  <div class="wrap footerGrid">
-    <div class="small">© 2026 G300 RAZE</div>
-    <nav class="footerLinks" aria-label="Footer">
-      <a href="./refund.html">Refund Policy</a>
-      <a href="./shipping.html">Shipping Policy</a>
-      <a href="./privacy.html">Privacy</a>
-      <a href="./terms.html">Terms</a>
-    </nav>
-    <div class="small" style="margin-top:10px;">support@razesmartglasses.com</div>
-  </div>
-</footer>
-
-<script src="./app.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo footer-logo">Coolbox</div>
+        <p>Premium mini cold storage for peptides, GLP-1 pens, vials, and wellness essentials.</p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="shipping.html">Shipping Policy</a>
+        <a href="returns.html">Returns Policy</a>
+        <a href="warranty.html">Warranty</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="contact.html">coolboxcoolers@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
