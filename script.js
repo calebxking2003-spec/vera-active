@@ -137,57 +137,7 @@ if (popupBackdrop) {
 }
 if (closePopup) closePopup.addEventListener('click', hidePopup);
 
-if (popupForm) {
-  popupForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!popupBackdrop) return;
-    popupBackdrop.classList.add('show');
-    popupBackdrop.innerHTML = `
-      <div class="popup popup-success">
-        <button class="popup-close" id="closePopupSuccess" aria-label="Close">×</button>
-        <div class="eyebrow">You're in 🎉</div>
-        <h3>Your 10% code is ready</h3>
-        <p class="popup-success-copy">Use this code at checkout:</p>
-        <div class="coupon-code">COOLBOX10</div>
-        <p class="popup-success-copy">Enter it in Stripe checkout under promotion code.</p>
-        <div class="popup-success-actions">
-          <button class="button button-dark" id="copyCouponBtn" type="button">Copy Code</button>
-          <button class="button button-light" id="continueBtn" type="button">Continue</button>
-        </div>
-      </div>
-    `;
 
-    const closeBtn = document.getElementById('closePopupSuccess');
-    const continueBtn = document.getElementById('continueBtn');
-    const copyBtn = document.getElementById('copyCouponBtn');
-
-    const closeSuccess = () => {
-      popupBackdrop.classList.remove('show');
-      sessionStorage.setItem('coolboxPopupDismissed', 'true');
-    };
-
-    if (closeBtn) closeBtn.addEventListener('click', closeSuccess);
-    if (continueBtn) continueBtn.addEventListener('click', closeSuccess);
-    if (copyBtn) {
-      copyBtn.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText('COOLBOX10');
-          copyBtn.textContent = 'Copied';
-        } catch (err) {
-          copyBtn.textContent = 'Code: COOLBOX10';
-        }
-      });
-    }
-  });
-}
-if (emailForm) {
-  emailForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const input = document.getElementById('emailInput');
-    if (input) input.value = '';
-    alert('Thanks. You are on the list.');
-  });
-}
 
 const CURRENCY_RATES = { USD: 1, CAD: 1.35, EUR: 0.93, GBP: 0.79, AUD: 1.52 };
 const CURRENCY_SYMBOLS = { USD: '$', CAD: 'CA$', EUR: '€', GBP: '£', AUD: 'A$' };
@@ -376,3 +326,64 @@ if (openDiscountPopup && popupBackdrop) {
     popupBackdrop.classList.add('show');
   });
 }
+
+
+function showCouponSuccess() {
+  if (!popupBackdrop) return;
+  popupBackdrop.classList.add('show');
+  popupBackdrop.innerHTML = `
+    <div class="popup popup-success">
+      <button class="popup-close" id="closePopupSuccess" aria-label="Close">×</button>
+      <div class="eyebrow">You're in 🎉</div>
+      <h3>Your 10% code is ready</h3>
+      <p class="popup-success-copy">Use this code at checkout:</p>
+      <div class="coupon-code">COOLBOX10</div>
+      <p class="popup-success-copy">Apply your coupon in Stripe checkout after clicking checkout.</p>
+      <div class="popup-success-actions">
+        <button class="button button-dark" id="copyCouponBtn" type="button">Copy Code</button>
+        <button class="button button-light" id="continueBtn" type="button">Continue</button>
+      </div>
+    </div>
+  `;
+
+  const closeBtn = document.getElementById('closePopupSuccess');
+  const continueBtn = document.getElementById('continueBtn');
+  const copyBtn = document.getElementById('copyCouponBtn');
+
+  const closeSuccess = () => {
+    popupBackdrop.classList.remove('show');
+    sessionStorage.setItem('coolboxPopupDismissed', 'true');
+  };
+
+  if (closeBtn) closeBtn.addEventListener('click', closeSuccess);
+  if (continueBtn) continueBtn.addEventListener('click', closeSuccess);
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('COOLBOX10');
+        copyBtn.textContent = 'Copied';
+      } catch (err) {
+        copyBtn.textContent = 'Code: COOLBOX10';
+      }
+    });
+  }
+}
+
+if (popupForm) {
+  popupForm.addEventListener('submit', () => {
+    setTimeout(() => {
+      showCouponSuccess();
+    }, 500);
+  });
+}
+
+if (emailForm) {
+  emailForm.addEventListener('submit', () => {
+    const input = document.getElementById('emailInput');
+    setTimeout(() => {
+      if (input) input.value = '';
+      alert('Thanks — you are on the Coolbox list.');
+    }, 500);
+  });
+}
+
