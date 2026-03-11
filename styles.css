@@ -983,3 +983,20 @@ td{color:var(--muted)}
     width:100%;
   }
 }
+
+
+.buy-now-direct{
+  display:flex;
+  width:100%;
+  justify-content:center;
+  margin-top:18px;
+  margin-bottom:10px;
+}
+
+#cartNote{
+  margin-bottom:18px;
+}
+
+.payment-row{
+  display:none !important;
+}
